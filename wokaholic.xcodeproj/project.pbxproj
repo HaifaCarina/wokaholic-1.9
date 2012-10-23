@@ -29,6 +29,8 @@
 		A588C12016365F2B00968850 /* home-button.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11F16365F2B00968850 /* home-button.png */; };
 		A588C12216365FE100968850 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C12116365FE100968850 /* QuartzCore.framework */; };
 		A588C1241636600200968850 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C1231636600200968850 /* MobileCoreServices.framework */; };
+		A588C12B1636651800968850 /* CookingQuizController.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C12A1636651800968850 /* CookingQuizController.m */; };
+		A588C1341636681400968850 /* www in Resources */ = {isa = PBXBuildFile; fileRef = A588C1331636681400968850 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,9 @@
 		A588C11F16365F2B00968850 /* home-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-button.png"; sourceTree = "<group>"; };
 		A588C12116365FE100968850 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A588C1231636600200968850 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A588C1291636651800968850 /* CookingQuizController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookingQuizController.h; sourceTree = "<group>"; };
+		A588C12A1636651800968850 /* CookingQuizController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookingQuizController.m; sourceTree = "<group>"; };
+		A588C1331636681400968850 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,7 @@
 		A588C0CE16364AB300968850 = {
 			isa = PBXGroup;
 			children = (
+				A588C1331636681400968850 /* www */,
 				A588C0E516364AB300968850 /* wokaholic */,
 				A588C0DC16364AB300968850 /* Frameworks */,
 				A588C0DA16364AB300968850 /* Products */,
@@ -118,6 +124,8 @@
 				A588C0FA16364AC500968850 /* RootViewController.m */,
 				A588C10E16365CA200968850 /* PhotoAppController.h */,
 				A588C10F16365CA200968850 /* PhotoAppController.m */,
+				A588C1291636651800968850 /* CookingQuizController.h */,
+				A588C12A1636651800968850 /* CookingQuizController.m */,
 				A588C0F116364AB300968850 /* wokaholic.xcdatamodeld */,
 				A588C0E616364AB300968850 /* Supporting Files */,
 			);
@@ -207,6 +215,7 @@
 				A588C11C16365EB900968850 /* photoapp-male-sherry-apple-pork-chops.png in Resources */,
 				A588C11E16365EE500968850 /* capture.png in Resources */,
 				A588C12016365F2B00968850 /* home-button.png in Resources */,
+				A588C1341636681400968850 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +231,7 @@
 				A588C0F316364AB300968850 /* wokaholic.xcdatamodeld in Sources */,
 				A588C0FB16364AC500968850 /* RootViewController.m in Sources */,
 				A588C11016365CA200968850 /* PhotoAppController.m in Sources */,
+				A588C12B1636651800968850 /* CookingQuizController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +339,7 @@
 				A588C0F816364AB300968850 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

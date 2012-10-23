@@ -17,6 +17,9 @@
 }
 - (void) tappedCookingQuiz{
     NSLog(@"tap menu CookingQuiz");
+    CookingQuizController *aController = [[CookingQuizController alloc] init];
+    [self.navigationController pushViewController:aController animated:YES];
+    
 }
 - (void) tappedRecipes {
     NSLog(@"tap menu Recipes");
@@ -31,7 +34,7 @@
 
 - (void) loadView {
     [super loadView];
-    
+
     UIImage *facebookButton = [UIImage imageNamed:@"facebook.png"];
     UIButton *playButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     playButton.frame = CGRectMake(110.0, 360.0, facebookButton.size.width, facebookButton.size.height);
@@ -88,14 +91,7 @@
     [about setUserInteractionEnabled:YES];
     [aboutTap release];
 
-    
-    /*
-    UIButton *photoAppButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    photoAppButton.frame = CGRectMake(825.0, 130.0, 188, 126);
-    photoAppButton.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:photoAppButton];
-    
-    */
+
     
     
 }

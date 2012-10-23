@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  CookingQuizController.h
 //  wokaholic
 //
 //  Created by Haifa Carina Baluyos on 10/23/12.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoAppController.h"
-#import "CookingQuizController.h"
-@interface RootViewController : UIViewController
+
+@interface CookingQuizController : UIViewController {
+    
+}
 
 @end
