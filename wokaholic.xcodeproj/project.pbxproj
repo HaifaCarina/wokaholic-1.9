@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50679C9163678170017C672 /* main-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A50679C4163678170017C672 /* main-1.jpg */; };
+		A50679CA163678170017C672 /* main-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A50679C5163678170017C672 /* main-2.jpg */; };
+		A50679CB163678170017C672 /* main-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A50679C6163678170017C672 /* main-3.jpg */; };
+		A50679CC163678170017C672 /* main-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A50679C7163678170017C672 /* main-4.jpg */; };
+		A50679CD163678170017C672 /* main-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A50679C8163678170017C672 /* main-5.jpg */; };
+		A50679D21636783B0017C672 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A50679D11636783B0017C672 /* iCarousel.m */; };
 		A588C0DE16364AB300968850 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0DD16364AB300968850 /* UIKit.framework */; };
 		A588C0E016364AB300968850 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0DF16364AB300968850 /* Foundation.framework */; };
 		A588C0E216364AB300968850 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0E116364AB300968850 /* CoreGraphics.framework */; };
@@ -33,9 +39,18 @@
 		A588C1341636681400968850 /* www in Resources */ = {isa = PBXBuildFile; fileRef = A588C1331636681400968850 /* www */; };
 		A5A93FAF1636735E001987AC /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5A93FAE1636735E001987AC /* about.jpg */; };
 		A5A93FB31636737C001987AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A93FB21636737C001987AC /* AboutController.m */; };
+		A5A93FB61636750B001987AC /* RecipesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A93FB51636750B001987AC /* RecipesController.m */; };
+		A5A93FB8163676D6001987AC /* recipes-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A93FB7163676D6001987AC /* recipes-bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A50679C4163678170017C672 /* main-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "main-1.jpg"; sourceTree = "<group>"; };
+		A50679C5163678170017C672 /* main-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "main-2.jpg"; sourceTree = "<group>"; };
+		A50679C6163678170017C672 /* main-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "main-3.jpg"; sourceTree = "<group>"; };
+		A50679C7163678170017C672 /* main-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "main-4.jpg"; sourceTree = "<group>"; };
+		A50679C8163678170017C672 /* main-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "main-5.jpg"; sourceTree = "<group>"; };
+		A50679D01636783B0017C672 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		A50679D11636783B0017C672 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A588C0D916364AB300968850 /* wokaholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wokaholic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A588C0DD16364AB300968850 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A588C0DF16364AB300968850 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +85,9 @@
 		A5A93FAE1636735E001987AC /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
 		A5A93FB11636737C001987AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		A5A93FB21636737C001987AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		A5A93FB41636750B001987AC /* RecipesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesController.h; sourceTree = "<group>"; };
+		A5A93FB51636750B001987AC /* RecipesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesController.m; sourceTree = "<group>"; };
+		A5A93FB7163676D6001987AC /* recipes-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipes-bg.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A50679CF1636783B0017C672 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				A50679D01636783B0017C672 /* iCarousel.h */,
+				A50679D11636783B0017C672 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		A588C0CE16364AB300968850 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +150,7 @@
 		A588C0E516364AB300968850 /* wokaholic */ = {
 			isa = PBXGroup;
 			children = (
+				A50679CF1636783B0017C672 /* iCarousel */,
 				A588C0EE16364AB300968850 /* AppDelegate.h */,
 				A588C0EF16364AB300968850 /* AppDelegate.m */,
 				A588C0F916364AC500968850 /* RootViewController.h */,
@@ -133,6 +161,8 @@
 				A588C12A1636651800968850 /* CookingQuizController.m */,
 				A5A93FB11636737C001987AC /* AboutController.h */,
 				A5A93FB21636737C001987AC /* AboutController.m */,
+				A5A93FB41636750B001987AC /* RecipesController.h */,
+				A5A93FB51636750B001987AC /* RecipesController.m */,
 				A588C0F116364AB300968850 /* wokaholic.xcdatamodeld */,
 				A588C0E616364AB300968850 /* Supporting Files */,
 			);
@@ -142,6 +172,12 @@
 		A588C0E616364AB300968850 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A50679C4163678170017C672 /* main-1.jpg */,
+				A50679C5163678170017C672 /* main-2.jpg */,
+				A50679C6163678170017C672 /* main-3.jpg */,
+				A50679C7163678170017C672 /* main-4.jpg */,
+				A50679C8163678170017C672 /* main-5.jpg */,
+				A5A93FB7163676D6001987AC /* recipes-bg.png */,
 				A5A93FAE1636735E001987AC /* about.jpg */,
 				A588C11F16365F2B00968850 /* home-button.png */,
 				A588C11D16365EE500968850 /* capture.png */,
@@ -225,6 +261,12 @@
 				A588C12016365F2B00968850 /* home-button.png in Resources */,
 				A588C1341636681400968850 /* www in Resources */,
 				A5A93FAF1636735E001987AC /* about.jpg in Resources */,
+				A5A93FB8163676D6001987AC /* recipes-bg.png in Resources */,
+				A50679C9163678170017C672 /* main-1.jpg in Resources */,
+				A50679CA163678170017C672 /* main-2.jpg in Resources */,
+				A50679CB163678170017C672 /* main-3.jpg in Resources */,
+				A50679CC163678170017C672 /* main-4.jpg in Resources */,
+				A50679CD163678170017C672 /* main-5.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +284,8 @@
 				A588C11016365CA200968850 /* PhotoAppController.m in Sources */,
 				A588C12B1636651800968850 /* CookingQuizController.m in Sources */,
 				A5A93FB31636737C001987AC /* AboutController.m in Sources */,
+				A5A93FB61636750B001987AC /* RecipesController.m in Sources */,
+				A50679D21636783B0017C672 /* iCarousel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

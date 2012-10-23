@@ -23,6 +23,8 @@
 }
 - (void) tappedRecipes {
     NSLog(@"tap menu Recipes");
+    RecipesController *aController = [[RecipesController alloc] init];
+    [self.navigationController pushViewController:aController animated:YES];
 }
 - (void) tappedProductGuide {
     NSLog(@"tap menu ProductGuide");

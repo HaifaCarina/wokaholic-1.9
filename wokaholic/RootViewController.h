@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PhotoAppController.h"
 #import "CookingQuizController.h"
+#import "RecipesController.h"
 #import "AboutController.h"
+
 @interface RootViewController : UIViewController
 
 @end
