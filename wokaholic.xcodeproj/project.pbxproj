@@ -31,6 +31,8 @@
 		A588C1241636600200968850 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C1231636600200968850 /* MobileCoreServices.framework */; };
 		A588C12B1636651800968850 /* CookingQuizController.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C12A1636651800968850 /* CookingQuizController.m */; };
 		A588C1341636681400968850 /* www in Resources */ = {isa = PBXBuildFile; fileRef = A588C1331636681400968850 /* www */; };
+		A5A93FAF1636735E001987AC /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5A93FAE1636735E001987AC /* about.jpg */; };
+		A5A93FB31636737C001987AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A93FB21636737C001987AC /* AboutController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,9 @@
 		A588C1291636651800968850 /* CookingQuizController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookingQuizController.h; sourceTree = "<group>"; };
 		A588C12A1636651800968850 /* CookingQuizController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookingQuizController.m; sourceTree = "<group>"; };
 		A588C1331636681400968850 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		A5A93FAE1636735E001987AC /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
+		A5A93FB11636737C001987AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		A5A93FB21636737C001987AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +131,8 @@
 				A588C10F16365CA200968850 /* PhotoAppController.m */,
 				A588C1291636651800968850 /* CookingQuizController.h */,
 				A588C12A1636651800968850 /* CookingQuizController.m */,
+				A5A93FB11636737C001987AC /* AboutController.h */,
+				A5A93FB21636737C001987AC /* AboutController.m */,
 				A588C0F116364AB300968850 /* wokaholic.xcdatamodeld */,
 				A588C0E616364AB300968850 /* Supporting Files */,
 			);
@@ -135,6 +142,7 @@
 		A588C0E616364AB300968850 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5A93FAE1636735E001987AC /* about.jpg */,
 				A588C11F16365F2B00968850 /* home-button.png */,
 				A588C11D16365EE500968850 /* capture.png */,
 				A588C11116365EB900968850 /* photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png */,
@@ -216,6 +224,7 @@
 				A588C11E16365EE500968850 /* capture.png in Resources */,
 				A588C12016365F2B00968850 /* home-button.png in Resources */,
 				A588C1341636681400968850 /* www in Resources */,
+				A5A93FAF1636735E001987AC /* about.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +241,7 @@
 				A588C0FB16364AC500968850 /* RootViewController.m in Sources */,
 				A588C11016365CA200968850 /* PhotoAppController.m in Sources */,
 				A588C12B1636651800968850 /* CookingQuizController.m in Sources */,
+				A5A93FB31636737C001987AC /* AboutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

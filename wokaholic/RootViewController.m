@@ -29,7 +29,8 @@
 }
 
 - (void) tappedAbout {
-    NSLog(@"tap menu About");
+    AboutController *aController = [[AboutController alloc] init];
+    [self.navigationController pushViewController:aController animated:YES];
 }
 
 - (void) loadView {
