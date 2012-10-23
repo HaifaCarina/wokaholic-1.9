@@ -30,4 +30,8 @@
     [home setUserInteractionEnabled:YES];
     [homeTap release];
 }
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft );
+}
 @end

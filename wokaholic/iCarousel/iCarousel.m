@@ -163,7 +163,7 @@
 		[self setup];
         [self reloadData];
 #ifndef __IPHONE_OS_VERSION_MAX_ALLOWED
-        [self viewDidMoveToSuperview]; 
+        [self viewDidMoveToSuperview];
 #endif
 	}
 	return self;

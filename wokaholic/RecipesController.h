@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h" 
+#import "PDFViewController.h"
 @interface RecipesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
 	iCarousel *carousel;
 }

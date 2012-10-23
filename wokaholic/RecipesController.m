@@ -21,6 +21,9 @@
 - (void) loadView {
     [super loadView];
     
+    self.navigationController.navigationBar.hidden = YES;
+    //[[UIDevice currentDevice] setOrientation:UIInterfaceOrientationLandscapeLeft];
+    
     UIImageView *background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"recipes-bg.png"]];
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
@@ -37,16 +40,27 @@
     
     // The items to be displayed in the carousel
 	items = [NSArray arrayWithObjects:
-			 [UIImage imageNamed:@"main-1.jpg"],
+             [UIImage imageNamed:@"main-1.jpg"],
 			 [UIImage imageNamed:@"main-2.jpg"],
 			 [UIImage imageNamed:@"main-3.jpg"],
-			 [UIImage imageNamed:@"main-4.png"],
-			 [UIImage imageNamed:@"main-5.png"],
+			 [UIImage imageNamed:@"main-4.jpg"],
+			 [UIImage imageNamed:@"main-5.jpg"],
+             [UIImage imageNamed:@"appetizer-1.jpg"],
+			 [UIImage imageNamed:@"appetizer-2.jpg"],
+			 [UIImage imageNamed:@"appetizer-3.jpg"],
+			 [UIImage imageNamed:@"appetizer-4.jpg"],
+			 [UIImage imageNamed:@"appetizer-5.jpg"],
+             [UIImage imageNamed:@"dessert-1.jpg"],
+			 [UIImage imageNamed:@"dessert-2.jpg"],
+			 [UIImage imageNamed:@"dessert-3.jpg"],
+			 [UIImage imageNamed:@"dessert-4.jpg"],
+			 [UIImage imageNamed:@"dessert-5.jpg"],
+			 
 			 nil];
 	
 	// Initialize and configure the carousel
 	//carousel = [[iCarousel alloc] initWithFrame:self.view.bounds];
-	carousel = [[iCarousel alloc] initWithFrame:CGRectMake(250, 200, 500, 200)];
+	carousel = [[iCarousel alloc] initWithFrame:CGRectMake(300, 200, 300, 200)];
 	
     //carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     carousel.type = iCarouselTypeRotary;
@@ -60,8 +74,14 @@
 - (void)carousel: (iCarousel *)_carousel didSelectItemAtIndex:(NSInteger)index
 {
     
-    NSLog(@"Did select item at index"); // sample
+    NSLog(@"Did select item at index %d", index); // sample
     
+    PDFViewController *aController = [[PDFViewController alloc]init];
+    
+    NSString *filename = [NSString stringWithFormat:@"main-%d.pdf", index + 1];
+    [aController setFileName:filename];
+    [self.navigationController pushViewController:aController animated:YES];
+    [aController release];
 }
 
 #pragma mark -
@@ -83,6 +103,22 @@
 	return button;
 	
 }
+- (BOOL)carouselShouldWrap:(iCarousel *)carousel
+{
+    //wrap all carousels
+    return YES;
+	
+}
 
+
+- (CGFloat)carouselItemWidth:(iCarousel *)carousel
+{
+    //slightly wider than item view
+    return 250;
+}
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft );
+}
 
 @end
