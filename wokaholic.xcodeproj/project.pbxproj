@@ -1,0 +1,349 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A588C0DE16364AB300968850 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0DD16364AB300968850 /* UIKit.framework */; };
+		A588C0E016364AB300968850 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0DF16364AB300968850 /* Foundation.framework */; };
+		A588C0E216364AB300968850 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0E116364AB300968850 /* CoreGraphics.framework */; };
+		A588C0E416364AB300968850 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0E316364AB300968850 /* CoreData.framework */; };
+		A588C0EA16364AB300968850 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A588C0E816364AB300968850 /* InfoPlist.strings */; };
+		A588C0EC16364AB300968850 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C0EB16364AB300968850 /* main.m */; };
+		A588C0F016364AB300968850 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C0EF16364AB300968850 /* AppDelegate.m */; };
+		A588C0F316364AB300968850 /* wokaholic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A588C0F116364AB300968850 /* wokaholic.xcdatamodeld */; };
+		A588C0FB16364AC500968850 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C0FA16364AC500968850 /* RootViewController.m */; };
+		A588C10716364F2600968850 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C10616364F2600968850 /* facebook.png */; };
+		A588C10916364F9400968850 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A588C10816364F9400968850 /* home.jpg */; };
+		A588C11016365CA200968850 /* PhotoAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C10F16365CA200968850 /* PhotoAppController.m */; };
+		A588C11716365EB900968850 /* photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11116365EB900968850 /* photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png */; };
+		A588C11816365EB900968850 /* photoapp-female-parmesan-crusted-fish.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11216365EB900968850 /* photoapp-female-parmesan-crusted-fish.png */; };
+		A588C11916365EB900968850 /* photoapp-female-sherry-apple-pork-chops.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11316365EB900968850 /* photoapp-female-sherry-apple-pork-chops.png */; };
+		A588C11A16365EB900968850 /* photoapp-male-chicken-scaloppine-with-spinach-and-linguine.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11416365EB900968850 /* photoapp-male-chicken-scaloppine-with-spinach-and-linguine.png */; };
+		A588C11B16365EB900968850 /* photoapp-male-parmesan-crusted-fish.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11516365EB900968850 /* photoapp-male-parmesan-crusted-fish.png */; };
+		A588C11C16365EB900968850 /* photoapp-male-sherry-apple-pork-chops.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11616365EB900968850 /* photoapp-male-sherry-apple-pork-chops.png */; };
+		A588C11E16365EE500968850 /* capture.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11D16365EE500968850 /* capture.png */; };
+		A588C12016365F2B00968850 /* home-button.png in Resources */ = {isa = PBXBuildFile; fileRef = A588C11F16365F2B00968850 /* home-button.png */; };
+		A588C12216365FE100968850 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C12116365FE100968850 /* QuartzCore.framework */; };
+		A588C1241636600200968850 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C1231636600200968850 /* MobileCoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A588C0D916364AB300968850 /* wokaholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wokaholic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A588C0DD16364AB300968850 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A588C0DF16364AB300968850 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A588C0E116364AB300968850 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A588C0E316364AB300968850 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A588C0E716364AB300968850 /* wokaholic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wokaholic-Info.plist"; sourceTree = "<group>"; };
+		A588C0E916364AB300968850 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A588C0EB16364AB300968850 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A588C0ED16364AB300968850 /* wokaholic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wokaholic-Prefix.pch"; sourceTree = "<group>"; };
+		A588C0EE16364AB300968850 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A588C0EF16364AB300968850 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A588C0F216364AB300968850 /* wokaholic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wokaholic.xcdatamodel; sourceTree = "<group>"; };
+		A588C0F916364AC500968850 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		A588C0FA16364AC500968850 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		A588C10616364F2600968850 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		A588C10816364F9400968850 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
+		A588C10E16365CA200968850 /* PhotoAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAppController.h; sourceTree = "<group>"; };
+		A588C10F16365CA200968850 /* PhotoAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAppController.m; sourceTree = "<group>"; };
+		A588C11116365EB900968850 /* photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png"; sourceTree = "<group>"; };
+		A588C11216365EB900968850 /* photoapp-female-parmesan-crusted-fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoapp-female-parmesan-crusted-fish.png"; sourceTree = "<group>"; };
+		A588C11316365EB900968850 /* photoapp-female-sherry-apple-pork-chops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoapp-female-sherry-apple-pork-chops.png"; sourceTree = "<group>"; };
+		A588C11416365EB900968850 /* photoapp-male-chicken-scaloppine-with-spinach-and-linguine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoapp-male-chicken-scaloppine-with-spinach-and-linguine.png"; sourceTree = "<group>"; };
+		A588C11516365EB900968850 /* photoapp-male-parmesan-crusted-fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoapp-male-parmesan-crusted-fish.png"; sourceTree = "<group>"; };
+		A588C11616365EB900968850 /* photoapp-male-sherry-apple-pork-chops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoapp-male-sherry-apple-pork-chops.png"; sourceTree = "<group>"; };
+		A588C11D16365EE500968850 /* capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture.png; sourceTree = "<group>"; };
+		A588C11F16365F2B00968850 /* home-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-button.png"; sourceTree = "<group>"; };
+		A588C12116365FE100968850 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A588C1231636600200968850 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A588C0D616364AB300968850 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A588C1241636600200968850 /* MobileCoreServices.framework in Frameworks */,
+				A588C12216365FE100968850 /* QuartzCore.framework in Frameworks */,
+				A588C0DE16364AB300968850 /* UIKit.framework in Frameworks */,
+				A588C0E016364AB300968850 /* Foundation.framework in Frameworks */,
+				A588C0E216364AB300968850 /* CoreGraphics.framework in Frameworks */,
+				A588C0E416364AB300968850 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A588C0CE16364AB300968850 = {
+			isa = PBXGroup;
+			children = (
+				A588C0E516364AB300968850 /* wokaholic */,
+				A588C0DC16364AB300968850 /* Frameworks */,
+				A588C0DA16364AB300968850 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A588C0DA16364AB300968850 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A588C0D916364AB300968850 /* wokaholic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A588C0DC16364AB300968850 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A588C1231636600200968850 /* MobileCoreServices.framework */,
+				A588C12116365FE100968850 /* QuartzCore.framework */,
+				A588C0DD16364AB300968850 /* UIKit.framework */,
+				A588C0DF16364AB300968850 /* Foundation.framework */,
+				A588C0E116364AB300968850 /* CoreGraphics.framework */,
+				A588C0E316364AB300968850 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A588C0E516364AB300968850 /* wokaholic */ = {
+			isa = PBXGroup;
+			children = (
+				A588C0EE16364AB300968850 /* AppDelegate.h */,
+				A588C0EF16364AB300968850 /* AppDelegate.m */,
+				A588C0F916364AC500968850 /* RootViewController.h */,
+				A588C0FA16364AC500968850 /* RootViewController.m */,
+				A588C10E16365CA200968850 /* PhotoAppController.h */,
+				A588C10F16365CA200968850 /* PhotoAppController.m */,
+				A588C0F116364AB300968850 /* wokaholic.xcdatamodeld */,
+				A588C0E616364AB300968850 /* Supporting Files */,
+			);
+			path = wokaholic;
+			sourceTree = "<group>";
+		};
+		A588C0E616364AB300968850 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A588C11F16365F2B00968850 /* home-button.png */,
+				A588C11D16365EE500968850 /* capture.png */,
+				A588C11116365EB900968850 /* photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png */,
+				A588C11216365EB900968850 /* photoapp-female-parmesan-crusted-fish.png */,
+				A588C11316365EB900968850 /* photoapp-female-sherry-apple-pork-chops.png */,
+				A588C11416365EB900968850 /* photoapp-male-chicken-scaloppine-with-spinach-and-linguine.png */,
+				A588C11516365EB900968850 /* photoapp-male-parmesan-crusted-fish.png */,
+				A588C11616365EB900968850 /* photoapp-male-sherry-apple-pork-chops.png */,
+				A588C10816364F9400968850 /* home.jpg */,
+				A588C10616364F2600968850 /* facebook.png */,
+				A588C0E716364AB300968850 /* wokaholic-Info.plist */,
+				A588C0E816364AB300968850 /* InfoPlist.strings */,
+				A588C0EB16364AB300968850 /* main.m */,
+				A588C0ED16364AB300968850 /* wokaholic-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A588C0D816364AB300968850 /* wokaholic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A588C0F616364AB300968850 /* Build configuration list for PBXNativeTarget "wokaholic" */;
+			buildPhases = (
+				A588C0D516364AB300968850 /* Sources */,
+				A588C0D616364AB300968850 /* Frameworks */,
+				A588C0D716364AB300968850 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wokaholic;
+			productName = wokaholic;
+			productReference = A588C0D916364AB300968850 /* wokaholic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A588C0D016364AB300968850 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "NMG Resources, Inc";
+			};
+			buildConfigurationList = A588C0D316364AB300968850 /* Build configuration list for PBXProject "wokaholic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A588C0CE16364AB300968850;
+			productRefGroup = A588C0DA16364AB300968850 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A588C0D816364AB300968850 /* wokaholic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A588C0D716364AB300968850 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A588C0EA16364AB300968850 /* InfoPlist.strings in Resources */,
+				A588C10716364F2600968850 /* facebook.png in Resources */,
+				A588C10916364F9400968850 /* home.jpg in Resources */,
+				A588C11716365EB900968850 /* photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png in Resources */,
+				A588C11816365EB900968850 /* photoapp-female-parmesan-crusted-fish.png in Resources */,
+				A588C11916365EB900968850 /* photoapp-female-sherry-apple-pork-chops.png in Resources */,
+				A588C11A16365EB900968850 /* photoapp-male-chicken-scaloppine-with-spinach-and-linguine.png in Resources */,
+				A588C11B16365EB900968850 /* photoapp-male-parmesan-crusted-fish.png in Resources */,
+				A588C11C16365EB900968850 /* photoapp-male-sherry-apple-pork-chops.png in Resources */,
+				A588C11E16365EE500968850 /* capture.png in Resources */,
+				A588C12016365F2B00968850 /* home-button.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A588C0D516364AB300968850 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A588C0EC16364AB300968850 /* main.m in Sources */,
+				A588C0F016364AB300968850 /* AppDelegate.m in Sources */,
+				A588C0F316364AB300968850 /* wokaholic.xcdatamodeld in Sources */,
+				A588C0FB16364AC500968850 /* RootViewController.m in Sources */,
+				A588C11016365CA200968850 /* PhotoAppController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A588C0E816364AB300968850 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A588C0E916364AB300968850 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A588C0F416364AB300968850 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A588C0F516364AB300968850 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A588C0F716364AB300968850 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wokaholic/wokaholic-Prefix.pch";
+				INFOPLIST_FILE = "wokaholic/wokaholic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A588C0F816364AB300968850 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wokaholic/wokaholic-Prefix.pch";
+				INFOPLIST_FILE = "wokaholic/wokaholic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A588C0D316364AB300968850 /* Build configuration list for PBXProject "wokaholic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A588C0F416364AB300968850 /* Debug */,
+				A588C0F516364AB300968850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A588C0F616364AB300968850 /* Build configuration list for PBXNativeTarget "wokaholic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A588C0F716364AB300968850 /* Debug */,
+				A588C0F816364AB300968850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A588C0F116364AB300968850 /* wokaholic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A588C0F216364AB300968850 /* wokaholic.xcdatamodel */,
+			);
+			currentVersion = A588C0F216364AB300968850 /* wokaholic.xcdatamodel */;
+			path = wokaholic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A588C0D016364AB300968850 /* Project object */;
+}
