@@ -11,7 +11,7 @@
 #import "CookingQuizController.h"
 #import "RecipesController.h"
 #import "AboutController.h"
-
+#import "ProductGuideController.h"
 @interface RootViewController : UIViewController
 
 @end

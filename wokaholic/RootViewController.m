@@ -28,6 +28,8 @@
 }
 - (void) tappedProductGuide {
     NSLog(@"tap menu ProductGuide");
+    ProductGuideController *aController = [[ProductGuideController alloc] init];
+    [self.navigationController pushViewController:aController animated:YES];
 }
 
 - (void) tappedAbout {
