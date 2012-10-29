@@ -25,6 +25,7 @@
 		A50679FD163684770017C672 /* dessert-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A50679F3163684770017C672 /* dessert-5.jpg */; };
 		A5067A011636857C0017C672 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5067A001636857C0017C672 /* PDFViewController.m */; };
 		A5067A04163691DC0017C672 /* ProductGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5067A03163691DC0017C672 /* ProductGuideController.m */; };
+		A545576916390E2B00E54E30 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A545576816390E2B00E54E30 /* icon.png */; };
 		A588C0DE16364AB300968850 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0DD16364AB300968850 /* UIKit.framework */; };
 		A588C0E016364AB300968850 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0DF16364AB300968850 /* Foundation.framework */; };
 		A588C0E216364AB300968850 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C0E116364AB300968850 /* CoreGraphics.framework */; };
@@ -77,6 +78,7 @@
 		A5067A001636857C0017C672 /* PDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
 		A5067A02163691DC0017C672 /* ProductGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductGuideController.h; sourceTree = "<group>"; };
 		A5067A03163691DC0017C672 /* ProductGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductGuideController.m; sourceTree = "<group>"; };
+		A545576816390E2B00E54E30 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A588C0D916364AB300968850 /* wokaholic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wokaholic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A588C0DD16364AB300968850 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A588C0DF16364AB300968850 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +147,7 @@
 		A588C0CE16364AB300968850 = {
 			isa = PBXGroup;
 			children = (
+				A545576816390E2B00E54E30 /* icon.png */,
 				A588C1331636681400968850 /* www */,
 				A588C0E516364AB300968850 /* wokaholic */,
 				A588C0DC16364AB300968850 /* Frameworks */,
@@ -317,6 +320,7 @@
 				A50679FB163684770017C672 /* dessert-3.jpg in Resources */,
 				A50679FC163684770017C672 /* dessert-4.jpg in Resources */,
 				A50679FD163684770017C672 /* dessert-5.jpg in Resources */,
+				A545576916390E2B00E54E30 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

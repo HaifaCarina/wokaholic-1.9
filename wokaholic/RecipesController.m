@@ -78,7 +78,7 @@
     
     PDFViewController *aController = [[PDFViewController alloc]init];
     
-    NSString *filename = [NSString stringWithFormat:@"main-%d.pdf", index + 1];
+    NSString *filename = [NSString stringWithFormat:@"main-%d", index + 1];
     [aController setFileName:filename];
     [self.navigationController pushViewController:aController animated:YES];
     [aController release];
