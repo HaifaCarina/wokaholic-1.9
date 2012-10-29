@@ -11,18 +11,18 @@
 @interface PhotoAppController : UIViewController <UIImagePickerControllerDelegate , UINavigationControllerDelegate, UIScrollViewDelegate> {
     UIImagePickerController *imgPicker;
     UIImageView *snapshot;
-    UIScrollView *scrollView;
-    UIImageView *maskedImage;
+
     UIImageView *background;
     UISegmentedControl *dishOptions;
     UISegmentedControl *genderOptions;
     UIButton *shareButton;
     UIButton *shootButton;
     UIImageView *facebook;
+    UIImageView *photo;
+    NSString *fileName;
 }
 
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 @property (nonatomic, retain) UIImageView *snapshot;
-@property (nonatomic, retain) UIScrollView *scrollView;
 
 @end

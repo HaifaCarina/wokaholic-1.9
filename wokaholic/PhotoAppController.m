@@ -9,7 +9,7 @@
 #import "PhotoAppController.h"
 
 @implementation PhotoAppController
-@synthesize imgPicker, snapshot, scrollView;
+@synthesize imgPicker, snapshot; //, scrollView;
 
 - (void) tappedHome {
     [self.navigationController popViewControllerAnimated:YES];
@@ -92,7 +92,7 @@
             break;
     }
     
-    NSString *fileName = [NSString stringWithFormat:@"photoapp-%@-%@.png",gender,dish];
+    fileName = [NSString stringWithFormat:@"photoapp-%@-%@.png",gender,dish];
     background.image = [UIImage imageNamed:fileName];
     
 }
@@ -102,23 +102,19 @@
     [super loadView];
     
     imgPicker = [[UIImagePickerController alloc] init];
-    imgPicker.allowsEditing = YES;
     imgPicker.delegate = self;
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    maskedImage = [[UIImageView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    maskedImage.contentMode = UIViewContentModeTop;
+    fileName = [NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
+    UIImageView *overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
+    overlay.alpha = 0.5f;
+    imgPicker.cameraOverlayView = overlay;
     
-    scrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(820, 100, 200, 250) ];
-    scrollView.delegate = self;
-    scrollView.minimumZoomScale=0.02;
-    scrollView.maximumZoomScale=60.0;
-    scrollView.scrollEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = TRUE;
-    scrollView.showsVerticalScrollIndicator = TRUE;
-    scrollView.contentSize = CGSizeMake([UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"].size.width , [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"].size.height );
-    [scrollView addSubview:maskedImage];
-    [self.view addSubview:scrollView];
+    
+    photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    photo.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:photo];
+    
     
     background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]];
     background.backgroundColor = [UIColor clearColor];
@@ -189,27 +185,13 @@
 
 
 #pragma mark -
-#pragma mark UIScrollView Delegate
-- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
-    
-}
-- (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {
-    NSLog(@"%d",aScrollView.tag);
-    
-    return maskedImage;
-}
-- (void)scrollViewDidEndZooming:(UIScrollView *)zoomedScrollView withView:(UIView *)view atScale:(float)scale
-{
-    NSLog(@"%f ", scale);
-}
-
-#pragma mark -
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
     
-    scrollView.contentSize = img.size;
-    maskedImage.image = img;
+    photo.image = img;
+    photo.hidden = NO;
+    background.hidden = NO;
 	[picker dismissModalViewControllerAnimated:YES];
 }
 
