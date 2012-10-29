@@ -20,6 +20,7 @@
     UIImageView *facebook;
     UIImageView *photo;
     NSString *fileName;
+    UIImageView *overlay;
 }
 
 @property (nonatomic, retain) UIImagePickerController *imgPicker;

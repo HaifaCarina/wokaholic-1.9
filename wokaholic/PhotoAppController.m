@@ -94,6 +94,8 @@
     
     fileName = [NSString stringWithFormat:@"photoapp-%@-%@.png",gender,dish];
     background.image = [UIImage imageNamed:fileName];
+    overlay.image = [UIImage imageNamed:fileName];
+    
     
 }
 
@@ -106,15 +108,13 @@
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     fileName = [NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
-    UIImageView *overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
+    overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
     overlay.alpha = 0.5f;
     imgPicker.cameraOverlayView = overlay;
     
-    
     photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
-    photo.backgroundColor = [UIColor blueColor];
+    photo.backgroundColor = [UIColor clearColor];
     [self.view addSubview:photo];
-    
     
     background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]];
     background.backgroundColor = [UIColor clearColor];
