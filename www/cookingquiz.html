@@ -195,6 +195,20 @@
                 }
      
             }
+            
+            function getTitleDescription(score) {
+                
+                if (score <= 4) {
+                    return "You have to wash more dishes before you can make it to the top.";
+                } else if (score > 4 && score <= 9) {
+                    return "Keep cutting more veggies and mix some more soup. You'll get there.";
+                } else if (score > 10 && score <= 14) {
+                    return "Great job! You're almost at the head of your class.";
+                } else if (score == 15) {
+                    return "Congratulations! You are the best of the best and will certainly reign in the kitchen!";
+                }
+                
+            }
                         
             //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false); //preventing the pinch zoom et al
             
@@ -228,7 +242,7 @@
                    canvas = jQuery("#background");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   //canvasImage(canvas,"images/cookingquiz-background.jpg");
+                   //canvasImage(canvas,"images/quiz-score.jpg");
                    elemWH(canvas, 1024, 768);
                    elemZIndex(canvas, 10);
                    json = {
@@ -262,7 +276,7 @@
                                                                   }); 
                                 });
                   
-                   globalbg = new mm_animation("background", json); 
+                   globalbg = new mm_animation("background", json);
                    globalbg.play("game"); //if this code doesnt work use this...  globalbg._anim.gotoAndPlay(where);
                    
                  
@@ -279,7 +293,7 @@
                    canvas = jQuery("#score-bg");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   canvasImage(canvas,"images/quiz-score-bg.jpg");
+                   //canvasImage(canvas,"images/quiz-score-bg.jpg");
                    elemWH(canvas, 1024, 768);
                    elemZIndex(canvas, 10);
                    canvas.css("display", "none");
@@ -317,7 +331,45 @@
                    elemLeft(canvas, 220);
                    canvas.css("visibility", "hidden");
                    //canvas.css("background-color", "green");
-    
+                   
+                   //score-title-you
+                   canvas = jQuery("#score-title-you");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemWH(canvas, 300,40);
+                   elemZIndex(canvas, 11);
+                   elemTop(canvas, 525);
+                   elemLeft(canvas, 224);
+                   canvas.css("visibility", "hidden");
+                   //canvas.css("background-color", "yellow");
+                   //canvas.css("opacity", "0.5");
+                   canvas = document.getElementById("score-title-you");
+                   context = canvas.getContext("2d");
+                   context.font = 'bold 21pt arial ';
+                   context.textAlign = 'center';
+                   context.textBaseline = 'middle';
+                   context.fillStyle = "#603913";
+                   context.fillText("You are now a ", canvas.width / 2, canvas.height / 2);
+                   
+                   
+                   
+                   //score-title-description
+                   canvas = jQuery("#score-title-description");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemWH(canvas, 400,100);
+                   elemZIndex(canvas, 11);
+                   elemTop(canvas, 605);
+                   elemLeft(canvas, 190);
+                   //canvas.css("visibility", "hidden");
+                   //canvas.css("background-color", "green");
+                   //canvas.css("opacity", "0.5");
+                   
+                   //canvas = document.getElementById("score-title-description");
+                   //text = "Congratulations! You are the best of the best and will certainly reign in the kitchen!";
+                   //wrapText(canvas, text, 5, 23, (canvas.width - 8), 25, 'bold 21pt arial ', "#603913");
+                   
+                   
                  /*
                    //home
                    canvas = jQuery("#home");
@@ -495,40 +547,50 @@
                                                     } else {
                                                
                                                         //quiz-score
-                                                        canvas = jQuery("#score-bg");
-                                                        canvas.css("display", "block");
-                                                            
-                                                        //globalbg.play("score");
-                                                       canvas = jQuery("#score-correct");
-                                                       canvas.css("visibility", "visible");
-                                                       canvas = document.getElementById("score-correct");
-                                                       context = canvas.getContext("2d");
-                                                       context.font = 'bold 50pt arial ';
-                                                       context.textAlign = 'center';
-                                                       context.textBaseline = 'middle';
-                                                       context.fillStyle = "#d91b01";
-                                                       context.fillText(score, canvas.width / 2, canvas.height / 2);
+                                                        //canvas = jQuery("#score-bg");
+                                                        //canvas.css("display", "block");
+                                            console.log("BEFORE display score");
+                                                       globalbg.play("score");
+                                            console.log("AFTER display score");
                                                        
-                                                       canvas = jQuery("#score-incorrect");
-                                                       canvas.css("visibility", "visible");
-                                                       canvas = document.getElementById("score-incorrect");
-                                                       context = canvas.getContext("2d");
-                                                       context.font = 'bold 50pt arial ';
-                                                       context.textAlign = 'center';
-                                                       context.textBaseline = 'middle';
-                                                       context.fillStyle = "#d91b01";
-                                                       context.fillText(15-score, canvas.width / 2, canvas.height / 2);
+                                                    canvas = jQuery("#score-correct");
+                                                    canvas.css("visibility", "visible");
+                                                    canvas = document.getElementById("score-correct");
+                                                    context = canvas.getContext("2d");
+                                                    context.font = 'bold 25pt arial ';
+                                                    context.textAlign = 'center';
+                                                    context.textBaseline = 'middle';
+                                                    context.fillStyle = "#d91b01";
+                                                    context.fillText(score, canvas.width / 2, canvas.height / 2);
+                                                    
+                                                    canvas = jQuery("#score-incorrect");
+                                                    canvas.css("visibility", "visible");
+                                                    canvas = document.getElementById("score-incorrect");
+                                                    context = canvas.getContext("2d");
+                                                    context.font = 'bold 25pt arial ';
+                                                    context.textAlign = 'center';
+                                                    context.textBaseline = 'middle';
+                                                    context.fillStyle = "#d91b01";
+                                                    context.fillText(15-score, canvas.width / 2, canvas.height / 2);
+                                                    
+                                                    canvas = document.getElementById("score-title");
+                                                    context = canvas.getContext("2d");
+                                                    context.font = 'bold 30pt arial ';
+                                                    context.textAlign = 'center';
+                                                    context.textBaseline = 'middle';
+                                                    context.fillStyle = "#d91b01";
+                                                    context.fillText(getTitle(score), canvas.width / 2, canvas.height / 2);
+                                                    
                                                        
-                                                       canvas = document.getElementById("score-title");
-                                                       context = canvas.getContext("2d");
-                                                       context.font = 'bold 60pt arial ';
-                                                       context.textAlign = 'center';
-                                                       context.textBaseline = 'middle';
-                                                       context.fillStyle = "#d91b01";
-                                                       context.fillText(getTitle(score), canvas.width / 2, canvas.height / 2);
-                                                       
+                                                        canvas = document.getElementById("score-title-description");
+                                                        wrapText(canvas, getTitleDescription(score), 5, 23, (canvas.width - 8), 25, 'bold 21pt arial ', "#603913");
+                                                        
                                                        
                                                         canvas = jQuery("#score-title");
+                                                        canvas.css("visibility", "visible");
+                                                        canvas = jQuery("#score-title-you");
+                                                        canvas.css("visibility", "visible");
+                                                        canvas = jQuery("#score-title-description");
                                                         canvas.css("visibility", "visible");
                                                     }
                                             
@@ -586,11 +648,10 @@
                                                        canvas = jQuery("#message-incorrect");
                                                        canvas.css("visibility", "hidden");
                                                        
-                                                        //quiz-score
-                                                        canvas = jQuery("#score-bg");
-                                                        canvas.css("display", "block");
-                                               
-                                               
+                                                        console.log("BEFORE display score");
+                                                        globalbg.play("score");
+                                                        console.log("AFTER display score");
+                                                           
                                                        canvas = jQuery("#score-correct");
                                                        canvas.css("visibility", "visible");
                                                        canvas = document.getElementById("score-correct");
@@ -619,7 +680,15 @@
                                                        context.fillStyle = "#d91b01";
                                                        context.fillText(getTitle(score), canvas.width / 2, canvas.height / 2);
                                                        
+                                                        canvas = document.getElementById("score-title-description");
+                                                        wrapText(canvas, getTitleDescription(score), 5, 23, (canvas.width - 8), 25, 'bold 21pt arial ', "#603913");
+                                                        
+                                                        
                                                         canvas = jQuery("#score-title");
+                                                        canvas.css("visibility", "visible");
+                                                        canvas = jQuery("#score-title-you");
+                                                        canvas.css("visibility", "visible");
+                                                        canvas = jQuery("#score-title-description");
                                                         canvas.css("visibility", "visible");
                                                     }
                                                 }
@@ -661,6 +730,8 @@
             <canvas id="score-correct"></canvas>
             <canvas id="score-incorrect"></canvas>
             <canvas id="score-title"></canvas>
+            <canvas id="score-title-you"></canvas>
+            <canvas id="score-title-description"></canvas>
             
         </div>
         
