@@ -26,6 +26,9 @@
     UIActivityIndicatorView *spinner ;
     UIImageView *back;
     UIImage *currentBackground;
+    
+    UIScrollView *photoScrollView;
+    UIImageView *photoCaptured;
 }
 
 @property (nonatomic, retain) UIImagePickerController *imgPicker;

@@ -165,19 +165,41 @@
     imgPicker = [[UIImagePickerController alloc] init];
     imgPicker.delegate = self;
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imgPicker.allowsEditing = YES;
+    imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     
     fileName = [[NSString alloc]initWithString:@"photoapp-male-parmesan-crusted-fish.png"]; //[NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
     overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
     overlay.alpha = 0.5f;
-    imgPicker.cameraOverlayView = overlay;
+    //imgPicker.cameraOverlayView = overlay;
     
     photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
     photo.backgroundColor = [UIColor clearColor];
     [self.view addSubview:photo];
     
+    photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(800, 70, 150, 150)];
+    photoScrollView.backgroundColor = [UIColor redColor];
+    photoScrollView.scrollEnabled = YES;
+    photoScrollView.showsHorizontalScrollIndicator = TRUE;
+    photoScrollView.showsVerticalScrollIndicator = TRUE;
+    photoScrollView.contentSize = CGSizeMake(300, 300);
+    
+    photoScrollView.delegate = self;
+    photoScrollView.maximumZoomScale = 50;
+    photoScrollView.minimumZoomScale = .2;
+    
+    
+    photoCaptured = [[UIImageView alloc]initWithFrame:CGRectMake(photoScrollView.frame.size.width*.15, photoScrollView.frame.size.height*.15, 150, 150)];
+    photoCaptured.backgroundColor = [UIColor yellowColor];
+    photoCaptured.image = [UIImage imageNamed:@"photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png"];
+    [photoScrollView addSubview:photoCaptured];
+    [self.view addSubview:photoScrollView];
+    
+    
     background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]];
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
+    
     
     currentBackground = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"];
     
@@ -200,6 +222,7 @@
     [self.view addSubview:snapshot];
     UIImage *fbImage = [UIImage imageNamed:@"facebook.png"];
     
+    // Facebook Share button
     facebookShare = [[UIImageView alloc] initWithFrame:CGRectMake(120, 580, fbImage.size.width, fbImage.size.height)];
     facebookShare.image = fbImage;
     facebookShare.backgroundColor = [UIColor blueColor];
@@ -270,6 +293,8 @@
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
+    photoCaptured.image = img;
+    photoScrollView.contentSize = CGSizeMake((img.size.width*5) + img.size.width, (img.size.height*5) + img.size.height);
     
     photo.image = img;
     photo.hidden = NO;
@@ -300,11 +325,7 @@
     [facebook requestWithGraphPath:@"/me/photos"
                          andParams:params1 andHttpMethod:@"POST" andDelegate:self];
     NSLog(@"YEY! IT WORKED! T___T ");
-    
-    
-    
-
-    
+        
 }
 - (void) fbDidLogout {
     NSLog(@"fbDidLogout ");
