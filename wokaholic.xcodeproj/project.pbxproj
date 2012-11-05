@@ -66,6 +66,7 @@
 		A5D931B11647724500728C1D /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D931A31647724500728C1D /* SBJsonBase.m */; };
 		A5D931B21647724500728C1D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D931A51647724500728C1D /* SBJsonParser.m */; };
 		A5D931B31647724500728C1D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D931A71647724500728C1D /* SBJsonWriter.m */; };
+		A5D931BA1647867F00728C1D /* back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D931B91647867F00728C1D /* back-button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,7 @@
 		A5D931A51647724500728C1D /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		A5D931A61647724500728C1D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A5D931A71647724500728C1D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A5D931B91647867F00728C1D /* back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-button.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 		A588C0E616364AB300968850 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5D931B91647867F00728C1D /* back-button.png */,
 				A50679EA163684760017C672 /* appetizer-1.jpg */,
 				A50679EB163684770017C672 /* appetizer-2.jpg */,
 				A50679EC163684770017C672 /* appetizer-3.jpg */,
@@ -400,6 +403,7 @@
 				A50679FD163684770017C672 /* dessert-5.jpg in Resources */,
 				A545576916390E2B00E54E30 /* icon.png in Resources */,
 				A5D931A91647724500728C1D /* FBDialog.bundle in Resources */,
+				A5D931BA1647867F00728C1D /* back-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

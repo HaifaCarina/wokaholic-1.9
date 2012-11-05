@@ -24,9 +24,12 @@
     UIImageView *overlay;
     Facebook *facebook;
     UIActivityIndicatorView *spinner ;
+    UIImageView *back;
+    UIImage *currentBackground;
 }
 
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 @property (nonatomic, retain) UIImageView *snapshot;
 @property (nonatomic, retain) Facebook *facebook;
+
 @end

@@ -55,13 +55,27 @@
     [snapshot.layer setBorderWidth: 5.0];
     snapshot.hidden = NO;
     facebookShare.hidden = NO;
-    
+    back.hidden = NO;
     background.backgroundColor = [UIColor blackColor];
     background.image = nil;
     dishOptions.hidden = YES;
     genderOptions.hidden = YES;
     shootButton.hidden = YES;
     shareButton.hidden = YES;
+    
+    
+}
+
+- (void) tappedBack {
+    NSLog(@"tapped back %@", currentBackground);
+    background.image = currentBackground;
+    snapshot.hidden = YES;
+    facebookShare.hidden = YES;
+    back.hidden = YES;
+    dishOptions.hidden = NO;
+    genderOptions.hidden = NO;
+    shootButton.hidden = NO;
+    shareButton.hidden = NO;
     
     
 }
@@ -95,7 +109,7 @@
     fileName = [NSString stringWithFormat:@"photoapp-%@-%@.png",gender,dish];
     background.image = [UIImage imageNamed:fileName];
     overlay.image = [UIImage imageNamed:fileName];
-    
+    currentBackground = [UIImage imageNamed:fileName];
     
 }
 
@@ -152,7 +166,7 @@
     imgPicker.delegate = self;
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    fileName = [NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
+    fileName = [[NSString alloc]initWithString:@"photoapp-male-parmesan-crusted-fish.png"]; //[NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
     overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
     overlay.alpha = 0.5f;
     imgPicker.cameraOverlayView = overlay;
@@ -164,6 +178,8 @@
     background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]];
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
+    
+    currentBackground = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"];
     
     shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[shareButton addTarget:self  action:@selector(createSnapshot) forControlEvents:UIControlEventTouchDown];
@@ -230,9 +246,21 @@
     [home setUserInteractionEnabled:YES];
     [homeTap release];
     
+    // BACK BUTTON
+    back = [[UIImageView alloc] initWithFrame:CGRectMake(880, 700, 60, 54)];
+    back.image = [UIImage imageNamed:@"back-button.png"];
+    back.backgroundColor = [UIColor clearColor];
+    back.hidden = YES;//tappedBackButton
+    [self.view addSubview:back];
+    UITapGestureRecognizer *backTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBack ) ];
+    [back addGestureRecognizer:backTap];
+    [back setUserInteractionEnabled:YES];
+    [backTap release];
+    
+    
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     spinner.center = CGPointMake(self.view.frame.size.height/2, self.view.frame.size.width/2);
-    spinner.hidesWhenStopped = YES;
+    spinner.hidesWhenStopped = YES; 
     [self.view addSubview:spinner];
     
 }
