@@ -128,8 +128,18 @@
         [facebook requestWithGraphPath:@"/me/photos"
                              andParams:params1 andHttpMethod:@"POST" andDelegate:self];
         NSLog(@"REQUEST DONE");
+    } else {
+        NSLog(@"post again");
+        NSMutableDictionary *params1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                        snapshot.image, @"source",
+                                        @"caption desc", @"message",
+                                        nil];
+        [facebook requestWithGraphPath:@"/me/photos"
+                             andParams:params1 andHttpMethod:@"POST" andDelegate:self];
     }
     NSLog(@"END sSessionValid");
+    
+    [spinner startAnimating];
 }
 
 - (void) loadView {
@@ -220,6 +230,11 @@
     [home setUserInteractionEnabled:YES];
     [homeTap release];
     
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(self.view.frame.size.height/2, self.view.frame.size.width/2);
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    
 }
 
 
@@ -258,6 +273,10 @@
                          andParams:params1 andHttpMethod:@"POST" andDelegate:self];
     NSLog(@"YEY! IT WORKED! T___T ");
     
+    
+    
+
+    
 }
 - (void) fbDidLogout {
     NSLog(@"fbDidLogout ");
@@ -281,6 +300,15 @@
     if ([result isKindOfClass:[NSData class]]) {
     }
     NSLog(@"request returns %@",result);
+    [spinner stopAnimating];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"Success"
+                          message: @"PhotoApp snapshot has been posted to your Facebook wall."
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 
 

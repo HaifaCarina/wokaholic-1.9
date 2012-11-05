@@ -23,6 +23,7 @@
     NSString *fileName;
     UIImageView *overlay;
     Facebook *facebook;
+    UIActivityIndicatorView *spinner ;
 }
 
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
