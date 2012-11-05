@@ -54,7 +54,7 @@
     [snapshot.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [snapshot.layer setBorderWidth: 5.0];
     snapshot.hidden = NO;
-    facebook.hidden = NO;
+    facebookShare.hidden = NO;
     
     background.backgroundColor = [UIColor blackColor];
     background.image = nil;
@@ -99,6 +99,9 @@
     
 }
 
+- (void) tappedFacebook {
+    NSLog(@"tapped facebook");
+}
 
 - (void) loadView {
     [super loadView];
@@ -139,11 +142,15 @@
     [self.view addSubview:snapshot];
     UIImage *fbImage = [UIImage imageNamed:@"facebook.png"];
     
-    facebook = [[UIImageView alloc] initWithFrame:CGRectMake(120, 580, fbImage.size.width, fbImage.size.height)];
-    facebook.image = fbImage;
-    facebook.backgroundColor = [UIColor blueColor];
-    facebook.hidden = YES;
-    [self.view addSubview:facebook];
+    facebookShare = [[UIImageView alloc] initWithFrame:CGRectMake(120, 580, fbImage.size.width, fbImage.size.height)];
+    facebookShare.image = fbImage;
+    facebookShare.backgroundColor = [UIColor blueColor];
+    facebookShare.hidden = YES;
+    [self.view addSubview:facebookShare];
+    UITapGestureRecognizer *facebookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedFacebook ) ];
+    [facebookShare addGestureRecognizer:facebookTap];
+    [facebookShare setUserInteractionEnabled:YES];
+    [facebookTap release];
     
     
     UIFont *font = [UIFont boldSystemFontOfSize:14.0f];

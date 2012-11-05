@@ -17,7 +17,7 @@
     UISegmentedControl *genderOptions;
     UIButton *shareButton;
     UIButton *shootButton;
-    UIImageView *facebook;
+    UIImageView *facebookShare;
     UIImageView *photo;
     NSString *fileName;
     UIImageView *overlay;
