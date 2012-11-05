@@ -10,6 +10,8 @@
 
 @interface PDFViewController : UIViewController <UIWebViewDelegate> {
     NSString *filename;
+    UIScrollView *photoScrollView;
+    UIImageView *imageView;
 }
 - (void)setFileName: (NSString *) name;
 @end

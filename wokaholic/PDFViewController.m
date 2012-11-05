@@ -25,19 +25,25 @@
     [super loadView];
     self.navigationController.navigationBar.hidden = NO;
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-	webView.autoresizesSubviews = YES;
-	webView.autoresizingMask=(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
-    webView.dataDetectorTypes = UIDataDetectorTypeLink;
-    //webView.backgroundColor = [UIColor redColor];
+
+    NSString *imageString = [NSString stringWithFormat:@"%@.png", filename];
+    UIImage *image = [UIImage imageNamed:imageString];
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:filename ofType:@"pdf" inDirectory:@"www"]];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    photoScrollView.backgroundColor = [UIColor clearColor];
+    photoScrollView.scrollEnabled = YES;
+    photoScrollView.showsHorizontalScrollIndicator = TRUE;
+    photoScrollView.showsVerticalScrollIndicator = TRUE;
+    CGFloat height = (image.size.height*self.view.frame.size.height)/self.view.frame.size.width;
+    photoScrollView.contentSize = CGSizeMake(image.size.width, height + 40);
     
-    //add the web view to the content view
-	[self.view addSubview:webView];
     
-    [webView release];
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, height )];
+    imageView.backgroundColor = [UIColor blueColor];
+    imageView.image = image;
+    [photoScrollView addSubview:imageView];
+    
+    [self.view addSubview:photoScrollView];
 
 }
 
