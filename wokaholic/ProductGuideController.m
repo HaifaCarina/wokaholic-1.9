@@ -18,6 +18,7 @@
 
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.height, self.view.bounds.size.width)];
 	webView.scrollView.bounces = NO;
+    webView.scalesPageToFit=YES;
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"productguide" ofType:@"html" inDirectory:@"www"]];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];

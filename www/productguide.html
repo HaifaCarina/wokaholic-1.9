@@ -19,18 +19,18 @@
                 list-style-type:none;
                 list-style-position:outside;
                 position:relative;
-                line-height:1.5em;
-                font-size: 20px;
+                line-height:3em;
+                font-size: 40px;
                 font-family: Arial;
-                top: 101px;
-                left: 10px;
+                top: 202px;
+                left: 20px;
                 z-index: 100;
                 position: absolute;
             }
             
             #tab-menu a:link, #tab-menu a:active, #tab-menu a:visited{
                 display:block;
-                padding:0px 5px;
+                padding:0px 10px;
                 color:#fff;
                 text-decoration:none;
                 background-color:#a11a20;
@@ -51,7 +51,7 @@
             }
             
             #tab-menu li{
-                width:220px;
+                width:440px;
                 float:left;
                 text-align: center;
                 position:relative;
@@ -60,14 +60,14 @@
             
             #tab-menu ul {
                 position:absolute;
-                width:12em;
-                top:1.5em;
+                width:24em;
+                top:3em;
                 display:none;
                 
             }
             
             #tab-menu li ul a{
-                width:12em;
+                width:24em;
                 float:left;
             }
             
@@ -76,8 +76,8 @@
             }
             
             #tab-menu li ul ul {
-                left:12em;
-                margin:0px 0 0 10px;
+                left:24em;
+                margin:0px 0 0 20px;
             }
             
             #tab-menu li:hover ul ul, #tab-menu li:hover ul ul ul, #tab-menu li:hover ul ul ul ul{
@@ -87,7 +87,7 @@
                 display:block;
             }
             .product-menu {
-                font-size: 14px;
+                font-size: 28px;
             }
             
             #nmgcontainer #dish-menu #dishwasher-submenu{
@@ -159,9 +159,9 @@
                 console.log("changeInfoContent"+product +" : " + info);
                 canvas = jQuery("#background");
                 elemAbs(canvas);
-                elemWH(canvas, 1024, 768);
+                elemWH(canvas, 2048, 1536);
                 elemZIndex(canvas, 10);
-                canvasImage(canvas,"images/"+product+"-"+info+".png");
+                canvasImage(canvas,"images/"+product+"-"+info+"@2x.png");
                 //elemTop(canvas, 165);
                 //elemLeft(canvas, 10);
                 elemScale(canvas);
@@ -222,9 +222,9 @@
                 console.log("changeProductContent:"+product +" : " + info);
                 canvas = jQuery("#background");
                 elemAbs(canvas);
-                elemWH(canvas, 1024, 768);
+                elemWH(canvas, 2048, 1536);
                 elemZIndex(canvas, 10);
-                canvasImage(canvas,"images/"+product+"-"+info+".png");
+                canvasImage(canvas,"images/"+product+"-"+info+"@2x.png");
                 //elemTop(canvas, 165);
                 //elemLeft(canvas, 10);
                 elemScale(canvas);
@@ -268,8 +268,8 @@
                     canvas = jQuery("#background");
                     canvas.addClass("scale");
                     elemAbs(canvas);
-                    canvasImage(canvas,"images/free-standing-cookers-main.png");
-                    elemWH(canvas, 1024, 768);
+                    canvasImage(canvas,"images/free-standing-cookers-main@2x.png");
+                    elemWH(canvas, 2048, 1536);
                     elemZIndex(canvas, 1);
                     
                    //nmgcontainer
@@ -281,10 +281,10 @@
                    canvas = jQuery("#free-standing-cookers");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   elemWH(canvas, 140,34);
+                   elemWH(canvas, 280,68);
                    elemZIndex(canvas, 10);
-                   elemTop(canvas, 11);
-                   elemLeft(canvas, 340);
+                   elemTop(canvas, 22);
+                   elemLeft(canvas, 680);
                    //canvas.css("background-color", "blue");
                    //canvas.css("opacity", "0.5");
                    elemLink(canvas,"#");
@@ -294,10 +294,10 @@
                    canvas = jQuery("#built-in-ovens");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   elemWH(canvas, 110,34);
+                   elemWH(canvas, 220,68);
                    elemZIndex(canvas, 10);
-                   elemTop(canvas, 11);
-                   elemLeft(canvas, 340 + 150);
+                   elemTop(canvas, 22);
+                   elemLeft(canvas, 680 + 300);
                    //canvas.css("background-color", "pink");
                    //canvas.css("opacity", "0.5");
                    elemLink(canvas,"#");
@@ -307,10 +307,10 @@
                    canvas = jQuery("#hobs");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   elemWH(canvas, 65,34);
+                   elemWH(canvas, 130,68);
                    elemZIndex(canvas, 10);
-                   elemTop(canvas, 11);
-                   elemLeft(canvas, 340 + 150 + 120);
+                   elemTop(canvas, 22);
+                   elemLeft(canvas, 680 + 300 + 240);
                    //canvas.css("background-color", "orange");
                    //canvas.css("opacity", "0.5");
                    elemLink(canvas,"#");
@@ -319,10 +319,10 @@
                    canvas = jQuery("#hoods");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   elemWH(canvas, 60,34);
+                   elemWH(canvas, 120,68);
                    elemZIndex(canvas, 10);
-                   elemTop(canvas, 11);
-                   elemLeft(canvas, 340 + 150 + 120 + 75);
+                   elemTop(canvas, 22);
+                   elemLeft(canvas, 680 + 300 + 240 + 150);
                    //canvas.css("background-color", "green");
                    //canvas.css("opacity", "0.5");
                    elemLink(canvas,"#");
@@ -331,10 +331,10 @@
                    canvas = jQuery("#microwave-ovens");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   elemWH(canvas, 130,34);
+                   elemWH(canvas, 270,68);
                    elemZIndex(canvas, 10);
-                   elemTop(canvas, 11);
-                   elemLeft(canvas, 340 + 150 + 120 + 75 + 70);
+                   elemTop(canvas, 22);
+                   elemLeft(canvas, 680 + 300 + 240 + 150 + 140);
                    //canvas.css("background-color", "yellow");
                    //canvas.css("opacity", "0.5");
                    elemLink(canvas,"#");
@@ -343,10 +343,10 @@
                    canvas = jQuery("#dishwasher");
                    canvas.addClass("scale");
                    elemAbs(canvas);
-                   elemWH(canvas, 115,34);
+                   elemWH(canvas, 230,68);
                    elemZIndex(canvas, 10);
-                   elemTop(canvas, 11);
-                   elemLeft(canvas, 340 + 150 + 120 + 75 + 70 + 140);
+                   elemTop(canvas, 22);
+                   elemLeft(canvas, 680 + 300 + 240 + 150 + 140 + 270);
                    //canvas.css("background-color", "blue");
                    //canvas.css("opacity", "0.5");
                    elemLink(canvas,"#");
@@ -388,7 +388,7 @@
                    elemAbs(canvas);
                    elemWH(canvas, 1260,625);
                    elemZIndex(canvas, 10);
-                   canvasImage(canvas,"images/free-standing-cookers-specs.png");
+                   canvasImage(canvas,"images/free-standing-cookers-specs@2x.png");
                    elemTop(canvas, 165);
                    elemLeft(canvas, 10);
                    //canvas.css("background-color", "blue");
