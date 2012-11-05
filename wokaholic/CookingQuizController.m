@@ -17,11 +17,8 @@
 - (void) loadView {
     [super loadView];
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-	webView.autoresizesSubviews = YES;
-	webView.autoresizingMask=(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
-    webView.dataDetectorTypes = UIDataDetectorTypeLink;
-    webView.backgroundColor = [UIColor redColor];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.height, self.view.bounds.size.width)];
+	webView.scrollView.bounces = NO;
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"cookingquiz" ofType:@"html" inDirectory:@"www"]];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
