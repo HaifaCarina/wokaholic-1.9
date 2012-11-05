@@ -110,41 +110,41 @@
     [homeTap release];
     
     appetizersArray = [NSArray arrayWithObjects:
-                                [UIImage imageNamed:@"appetizer-thumb-1.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-2.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-3.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-4.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-5.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-6.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-7.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-8.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-9.png"],
-                                [UIImage imageNamed:@"appetizer-thumb-10.png"],nil];
+                                [UIImage imageNamed:@"thumb-appetizer-1.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-2.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-3.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-4.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-5.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-6.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-7.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-8.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-9.png"],
+                                [UIImage imageNamed:@"thumb-appetizer-10.png"],nil];
     mainCourseArray = [NSArray arrayWithObjects:
-                       [UIImage imageNamed:@"main-thumb-1.png"],
-                       [UIImage imageNamed:@"main-thumb-2.png"],
-                       [UIImage imageNamed:@"main-thumb-3.png"],
-                       [UIImage imageNamed:@"main-thumb-4.png"],
-                       [UIImage imageNamed:@"main-thumb-5.png"],
-                       [UIImage imageNamed:@"main-thumb-6.png"],
-                       [UIImage imageNamed:@"main-thumb-7.png"],
-                       [UIImage imageNamed:@"main-thumb-8.png"],
-                       [UIImage imageNamed:@"main-thumb-9.png"],
-                       [UIImage imageNamed:@"main-thumb-10.png"],
-                       [UIImage imageNamed:@"main-thumb-11.png"],
-                       [UIImage imageNamed:@"main-thumb-12.png"],
-                       [UIImage imageNamed:@"main-thumb-13.png"],
-                       [UIImage imageNamed:@"main-thumb-14.png"],
-                       [UIImage imageNamed:@"main-thumb-15.png"],nil];
+                       [UIImage imageNamed:@"thumb-main-1.png"],
+                       [UIImage imageNamed:@"thumb-main-2.png"],
+                       [UIImage imageNamed:@"thumb-main-3.png"],
+                       [UIImage imageNamed:@"thumb-main-4.png"],
+                       [UIImage imageNamed:@"thumb-main-5.png"],
+                       [UIImage imageNamed:@"thumb-main-6.png"],
+                       [UIImage imageNamed:@"thumb-main-7.png"],
+                       [UIImage imageNamed:@"thumb-main-8.png"],
+                       [UIImage imageNamed:@"thumb-main-9.png"],
+                       [UIImage imageNamed:@"thumb-main-10.png"],
+                       [UIImage imageNamed:@"thumb-main-11.png"],
+                       [UIImage imageNamed:@"thumb-main-12.png"],
+                       [UIImage imageNamed:@"thumb-main-13.png"],
+                       [UIImage imageNamed:@"thumb-main-14.png"],
+                       [UIImage imageNamed:@"thumb-main-15.png"],nil];
     
     dessertArray = [NSArray arrayWithObjects:
-                                [UIImage imageNamed:@"dessert-thumb-1.png"],
-                                [UIImage imageNamed:@"dessert-thumb-2.png"],
-                                [UIImage imageNamed:@"dessert-thumb-3.png"],
-                                [UIImage imageNamed:@"dessert-thumb-4.png"],
-                                [UIImage imageNamed:@"dessert-thumb-5.png"],
-                                [UIImage imageNamed:@"dessert-thumb-7.png"],
-                                [UIImage imageNamed:@"dessert-thumb-7.png"], nil];
+                                [UIImage imageNamed:@"thumb-dessert-1.png"],
+                                [UIImage imageNamed:@"thumb-dessert-2.png"],
+                                [UIImage imageNamed:@"thumb-dessert-3.png"],
+                                [UIImage imageNamed:@"thumb-dessert-4.png"],
+                                [UIImage imageNamed:@"thumb-dessert-5.png"],
+                                [UIImage imageNamed:@"thumb-dessert-7.png"],
+                                [UIImage imageNamed:@"thumb-dessert-7.png"], nil];
     
     
     carouselAppetizer = [[iCarousel alloc] initWithFrame:CGRectMake(310, 235, 280, 160) ];
