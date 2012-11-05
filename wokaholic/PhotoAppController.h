@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-@interface PhotoAppController : UIViewController <UIImagePickerControllerDelegate , UINavigationControllerDelegate, UIScrollViewDelegate> {
+#import "Facebook.h"
+@interface PhotoAppController : UIViewController <UIImagePickerControllerDelegate , UINavigationControllerDelegate, UIScrollViewDelegate, FBSessionDelegate, FBDialogDelegate,FBRequestDelegate> {
     UIImagePickerController *imgPicker;
     UIImageView *snapshot;
 
@@ -21,9 +22,10 @@
     UIImageView *photo;
     NSString *fileName;
     UIImageView *overlay;
+    Facebook *facebook;
 }
 
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 @property (nonatomic, retain) UIImageView *snapshot;
-
+@property (nonatomic, retain) Facebook *facebook;
 @end

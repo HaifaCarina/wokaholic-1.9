@@ -22,7 +22,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize viewController, navController;
+@synthesize viewController, navController, photoAppController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
@@ -30,6 +30,8 @@
     // Override point for customization after application launch.
     
     viewController = [[RootViewController alloc] init];
+    photoAppController = [[PhotoAppController alloc]init];
+    
     navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navController.navigationBar.hidden = YES;
     [self.window addSubview:navController.view];
@@ -37,6 +39,20 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+#pragma mark -
+#pragma mark Facebook Methods
+// Pre iOS 4.2 support
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSLog(@"DELEGATE Pre iOS 4.2 support");
+    return [[photoAppController facebook] handleOpenURL:url];
+}
+
+// For iOS 4.2+ support
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSLog(@"DELEGATE For iOS 4.2+ support ");
+    return [[photoAppController facebook] handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
