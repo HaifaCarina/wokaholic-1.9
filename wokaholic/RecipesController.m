@@ -31,6 +31,10 @@
             carouselAppetizer.hidden = NO;
             carouselMain.hidden = YES;
             carouselDessert.hidden = YES;
+            
+            [appetizers setFont:[UIFont fontWithName:@"Arial-BoldMT" size:25]];
+            [mainCourse setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+            [desserts setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
             break;
         }
         case 2:
@@ -39,6 +43,10 @@
             carouselAppetizer.hidden = YES;
             carouselMain.hidden = NO;
             carouselDessert.hidden = YES;
+            
+            [appetizers setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+            [mainCourse setFont:[UIFont fontWithName:@"Arial-BoldMT" size:25]];
+            [desserts setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
             break;
         }
         case 3:
@@ -47,10 +55,16 @@
             carouselAppetizer.hidden = YES;
             carouselMain.hidden = YES;
             carouselDessert.hidden = NO;
+            
+            [appetizers setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+            [mainCourse setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+            [desserts setFont:[UIFont fontWithName:@"Arial-BoldMT" size:25]];
             break;
         }
     }
 }
+
+
 
 - (void) loadView {
     [super loadView];
@@ -61,7 +75,8 @@
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
     
-    UILabel *appetizers = [[UILabel alloc] initWithFrame:CGRectMake(20 , 30, 150, 20 + 10)];
+    //UILabel *appetizers = [[UILabel alloc] initWithFrame:CGRectMake(20 , 30, 150, 20 + 10)];
+    appetizers = [[CustomUILabel alloc] initWithFrame:CGRectMake(20 , 20, 250, 30)];
     [appetizers setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
     appetizers.text = @"Appetizers";
     appetizers.textColor = UIColorFromRGB(0x6d1315);
@@ -74,8 +89,8 @@
     [tapAppetizer release];
     
     
-    UILabel *mainCourse = [[UILabel alloc] initWithFrame:CGRectMake(20, 30 + 40, 150, 20 + 10)];
-    [mainCourse setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+    mainCourse = [[CustomUILabel alloc] initWithFrame:CGRectMake(20, 60, 250, 30)];
+    [mainCourse setFont:[UIFont fontWithName:@"Arial-BoldMT" size:25]];
     mainCourse.text = @"Main Course";
     mainCourse.textColor = UIColorFromRGB(0x6d1315);
     mainCourse.backgroundColor = [UIColor clearColor];
@@ -87,7 +102,7 @@
     [mainCourse setUserInteractionEnabled:YES];
     [tapMain release];
     
-    UILabel *desserts = [[UILabel alloc] initWithFrame:CGRectMake(20, 30 + 40 + 40, 150, 20 + 10)];
+    desserts = [[CustomUILabel alloc] initWithFrame:CGRectMake(20, 90, 250, 30)];
     desserts.textColor = UIColorFromRGB(0x6d1315);
     [desserts setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
     desserts.text = @"Desserts";
@@ -97,6 +112,8 @@
     UITapGestureRecognizer *tapDessert = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenu: ) ];
     [desserts addGestureRecognizer:tapDessert];
     [desserts setUserInteractionEnabled:YES];
+    
+    
     [tapDessert release];
     
     // HOME BUTTON
@@ -172,6 +189,8 @@
     [self.view addSubview:carouselDessert];
     
     currentCarousel = 2;
+    
+    
 }
 
 

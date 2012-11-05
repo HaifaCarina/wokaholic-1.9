@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h" 
 #import "PDFViewController.h"
+#import "CustomUILabel.h"
 @interface RecipesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
 	iCarousel *carouselMain;
     iCarousel *carouselAppetizer;
     iCarousel *carouselDessert;
     NSInteger currentCarousel;
+    CustomUILabel *appetizers;
+    CustomUILabel *mainCourse;
+    CustomUILabel *desserts;
 }
 
 @end
