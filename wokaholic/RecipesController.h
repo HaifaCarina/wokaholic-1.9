@@ -10,7 +10,10 @@
 #import "iCarousel.h" 
 #import "PDFViewController.h"
 @interface RecipesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
-	iCarousel *carousel;
+	iCarousel *carouselMain;
+    iCarousel *carouselAppetizer;
+    iCarousel *carouselDessert;
+    NSInteger currentCarousel;
 }
 
 @end
