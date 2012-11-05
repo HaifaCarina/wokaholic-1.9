@@ -152,7 +152,7 @@
     carouselAppetizer.type = iCarouselTypeRotary;
 	carouselAppetizer.dataSource = self;
 	carouselAppetizer.delegate = self;
-    carouselAppetizer.hidden = NO;
+    carouselAppetizer.hidden = YES;
     [self.view addSubview:carouselAppetizer];
     
     carouselMain = [[iCarousel alloc] initWithFrame:CGRectMake(310, 235, 280, 160) ];
@@ -160,7 +160,7 @@
     carouselMain.type = iCarouselTypeRotary;
 	carouselMain.dataSource = self;
 	carouselMain.delegate = self;
-    carouselMain.hidden = YES;
+    carouselMain.hidden = NO;
     [self.view addSubview:carouselMain];
     
     carouselDessert = [[iCarousel alloc] initWithFrame:CGRectMake(310, 235, 280, 160) ];
@@ -171,7 +171,7 @@
     carouselDessert.hidden = YES;
     [self.view addSubview:carouselDessert];
     
-    currentCarousel = 1;
+    currentCarousel = 2;
 }
 
 
