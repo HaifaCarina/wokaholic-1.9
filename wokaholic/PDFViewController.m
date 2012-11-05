@@ -21,9 +21,21 @@
     filename =  name;
 }
 
+- (void) shareAction {
+    NSLog(@"share action");
+}
 - (void) loadView {
     [super loadView];
     self.navigationController.navigationBar.hidden = NO;
+    
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Share"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(shareAction)];
+    
+    self.navigationItem.rightBarButtonItem = shareButton;
+    [shareButton release];
     
 
     NSString *imageString = [NSString stringWithFormat:@"%@.png", filename];
