@@ -67,8 +67,10 @@
 }
 
 - (void) tappedBack {
-    NSLog(@"tapped back %@", currentBackground);
+    NSLog(@"tapped back %@", currentPhoto);
+    photoCaptured.image = currentPhoto;
     background.image = currentBackground;
+    background.backgroundColor = [UIColor clearColor];
     snapshot.hidden = YES;
     facebookShare.hidden = YES;
     back.hidden = YES;
@@ -173,9 +175,9 @@
     overlay.alpha = 0.5f;
     //imgPicker.cameraOverlayView = overlay;
     
-    photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
-    photo.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:photo];
+    //photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    //photo.backgroundColor = [UIColor clearColor];
+    //[self.view addSubview:photo];
     
     photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(800, 70, 150, 150)];
     photoScrollView.backgroundColor = [UIColor redColor];
@@ -195,17 +197,18 @@
     [photoScrollView addSubview:photoCaptured];
     [self.view addSubview:photoScrollView];
     
-    
     background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]];
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
     
     
+    
     currentBackground = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"];
+    //currentPhoto = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]; //[[UIImage alloc]init];//
     
     shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[shareButton addTarget:self  action:@selector(createSnapshot) forControlEvents:UIControlEventTouchDown];
-	[shareButton setTitle:@"Final" forState:UIControlStateNormal];
+	[shareButton setTitle:@"Preview" forState:UIControlStateNormal];
     shareButton.frame = CGRectMake(850.0, 470.0, 100.0,100.0);
     [self.view addSubview:shareButton];
     
@@ -295,9 +298,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
     photoCaptured.image = img;
     photoScrollView.contentSize = CGSizeMake((img.size.width*5) + img.size.width, (img.size.height*5) + img.size.height);
-    
-    photo.image = img;
-    photo.hidden = NO;
+    currentPhoto = img;
+    //photo.image = img;
+    //photo.hidden = NO;
     background.hidden = NO;
 	[picker dismissModalViewControllerAnimated:YES];
 }

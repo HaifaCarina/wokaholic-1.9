@@ -19,13 +19,14 @@
     UIButton *shareButton;
     UIButton *shootButton;
     UIImageView *facebookShare;
-    UIImageView *photo;
+    //UIImageView *photo;
     NSString *fileName;
     UIImageView *overlay;
     Facebook *facebook;
     UIActivityIndicatorView *spinner ;
     UIImageView *back;
     UIImage *currentBackground;
+    UIImage *currentPhoto;
     
     UIScrollView *photoScrollView;
     UIImageView *photoCaptured;
