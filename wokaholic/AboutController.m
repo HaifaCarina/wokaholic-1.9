@@ -16,7 +16,8 @@
 - (void) loadView {
     [super loadView];
     
-    UIImageView *background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about.jpg"]];
+    UIImageView *background = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    background.image = [UIImage imageNamed:@"about@2x.png"];
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
     
