@@ -7,16 +7,15 @@
 //
 
 #import "RecipesController.h"
-
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @interface RecipesController () <UIActionSheetDelegate>
-@property (nonatomic, retain) NSArray *items;
 @property (nonatomic, retain) NSArray *appetizersArray;
 @property (nonatomic, retain) NSArray *mainCourseArray;
 @property (nonatomic, retain) NSArray *dessertArray;
 @end
 
 @implementation RecipesController
-@synthesize items, appetizersArray, mainCourseArray, dessertArray;
+@synthesize appetizersArray, mainCourseArray, dessertArray;
 - (void) tappedHome {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -62,8 +61,10 @@
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
     
-    UILabel *appetizers = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, 100, 20)];
+    UILabel *appetizers = [[UILabel alloc] initWithFrame:CGRectMake(20 , 30, 150, 20 + 10)];
+    [appetizers setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
     appetizers.text = @"Appetizers";
+    appetizers.textColor = UIColorFromRGB(0x6d1315);
     appetizers.backgroundColor = [UIColor clearColor];
     appetizers.tag = 1;
     [self.view addSubview:appetizers];
@@ -72,9 +73,13 @@
     [appetizers setUserInteractionEnabled:YES];
     [tapAppetizer release];
     
-    UILabel *mainCourse = [[UILabel alloc] initWithFrame:CGRectMake(20, 30 + 20, 100, 20)];
+    
+    UILabel *mainCourse = [[UILabel alloc] initWithFrame:CGRectMake(20, 30 + 40, 150, 20 + 10)];
+    [mainCourse setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
     mainCourse.text = @"Main Course";
+    mainCourse.textColor = UIColorFromRGB(0x6d1315);
     mainCourse.backgroundColor = [UIColor clearColor];
+    
     mainCourse.tag = 2;
     [self.view addSubview:mainCourse];
     UITapGestureRecognizer *tapMain = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedMenu: ) ];
@@ -82,7 +87,9 @@
     [mainCourse setUserInteractionEnabled:YES];
     [tapMain release];
     
-    UILabel *desserts = [[UILabel alloc] initWithFrame:CGRectMake(20, 30 + 20 + 20, 100, 20)];
+    UILabel *desserts = [[UILabel alloc] initWithFrame:CGRectMake(20, 30 + 40 + 40, 150, 20 + 10)];
+    desserts.textColor = UIColorFromRGB(0x6d1315);
+    [desserts setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
     desserts.text = @"Desserts";
     desserts.backgroundColor = [UIColor clearColor];
     desserts.tag = 3;
@@ -103,33 +110,42 @@
     [homeTap release];
     
     appetizersArray = [NSArray arrayWithObjects:
-                                [UIImage imageNamed:@"appetizer-1.jpg"],
-                                [UIImage imageNamed:@"appetizer-2.jpg"],
-                                [UIImage imageNamed:@"appetizer-3.jpg"],
-                                [UIImage imageNamed:@"appetizer-4.jpg"],
-                                [UIImage imageNamed:@"appetizer-5.jpg"], nil];
+                                [UIImage imageNamed:@"appetizer-thumb-1.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-2.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-3.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-4.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-5.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-6.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-7.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-8.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-9.png"],
+                                [UIImage imageNamed:@"appetizer-thumb-10.png"],nil];
     mainCourseArray = [NSArray arrayWithObjects:
-                                [UIImage imageNamed:@"main-1.jpg"],
-                                [UIImage imageNamed:@"main-2.jpg"],
-                                [UIImage imageNamed:@"main-3.jpg"],
-                                [UIImage imageNamed:@"main-4.jpg"],
-                                [UIImage imageNamed:@"main-5.jpg"], nil];
+                       [UIImage imageNamed:@"main-thumb-1.png"],
+                       [UIImage imageNamed:@"main-thumb-2.png"],
+                       [UIImage imageNamed:@"main-thumb-3.png"],
+                       [UIImage imageNamed:@"main-thumb-4.png"],
+                       [UIImage imageNamed:@"main-thumb-5.png"],
+                       [UIImage imageNamed:@"main-thumb-6.png"],
+                       [UIImage imageNamed:@"main-thumb-7.png"],
+                       [UIImage imageNamed:@"main-thumb-8.png"],
+                       [UIImage imageNamed:@"main-thumb-9.png"],
+                       [UIImage imageNamed:@"main-thumb-10.png"],
+                       [UIImage imageNamed:@"main-thumb-11.png"],
+                       [UIImage imageNamed:@"main-thumb-12.png"],
+                       [UIImage imageNamed:@"main-thumb-13.png"],
+                       [UIImage imageNamed:@"main-thumb-14.png"],
+                       [UIImage imageNamed:@"main-thumb-15.png"],nil];
     
     dessertArray = [NSArray arrayWithObjects:
-                                [UIImage imageNamed:@"dessert-1.jpg"],
-                                [UIImage imageNamed:@"dessert-2.jpg"],
-                                [UIImage imageNamed:@"dessert-3.jpg"],
-                                [UIImage imageNamed:@"dessert-4.jpg"],
-                                [UIImage imageNamed:@"dessert-5.jpg"], nil];
+                                [UIImage imageNamed:@"dessert-thumb-1.png"],
+                                [UIImage imageNamed:@"dessert-thumb-2.png"],
+                                [UIImage imageNamed:@"dessert-thumb-3.png"],
+                                [UIImage imageNamed:@"dessert-thumb-4.png"],
+                                [UIImage imageNamed:@"dessert-thumb-5.png"],
+                                [UIImage imageNamed:@"dessert-thumb-7.png"],
+                                [UIImage imageNamed:@"dessert-thumb-7.png"], nil];
     
-    // The items to be displayed in the carousel
-	items = [NSArray arrayWithObjects:
-             [UIImage imageNamed:@"main-1.jpg"],
-			 [UIImage imageNamed:@"main-2.jpg"],
-			 [UIImage imageNamed:@"main-3.jpg"],
-			 [UIImage imageNamed:@"main-4.jpg"],
-			 [UIImage imageNamed:@"main-5.jpg"],
-			 nil];
     
     carouselAppetizer = [[iCarousel alloc] initWithFrame:CGRectMake(310, 235, 280, 160) ];
 	carouselAppetizer.tag = 1;
@@ -214,6 +230,15 @@
     }
 }
 
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (UIView *)carousel:(iCarousel *)_carousel viewForItemAtIndex:(NSUInteger)index
 {
     NSLog(@"CAROUSEL TAG: %d", _carousel.tag);
@@ -235,6 +260,7 @@
             break;
         }
     }
+    NSLog(@"%f, %f",image.size.width, image.size.height);
     
     UIButton *button = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)] autorelease];
     [button setBackgroundImage:image forState:UIControlStateNormal];
