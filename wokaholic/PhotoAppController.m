@@ -16,6 +16,7 @@
 }
 - (void) shoot{
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     [self presentModalViewController:imgPicker animated:YES];
 }
 
@@ -114,7 +115,6 @@
     
     fileName = [NSString stringWithFormat:@"photoapp-%@-%@.png",gender,dish];
     background.image = [UIImage imageNamed:fileName];
-    overlay.image = [UIImage imageNamed:fileName];
     currentBackground = [UIImage imageNamed:fileName];
     
 }
@@ -162,24 +162,29 @@
     [spinner startAnimating];
 }
 
-- (void) loadView {
-    facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
+- (void) viewDidAppear:(BOOL)animated {
     
-    [super loadView];
-    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-female-crop.png"]];
-    overlay.frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
-    overlay.alpha = 0.5f;
+    NSLog(@"viewdidappear");
     imgPicker = [[UIImagePickerController alloc] init];
     imgPicker.delegate = self;
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     //imgPicker.allowsEditing = YES;
     imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    
+    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-female-crop.png"]];
+    overlay.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    overlay.alpha = 0.5f;
+    
     imgPicker.cameraOverlayView = overlay;
+}
+- (void) loadView {
+    NSLog(@"loadView");
+    facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
+    
+    [super loadView];
+    
     
     fileName = [[NSString alloc]initWithString:@"photoapp-male-parmesan-crusted-fish.png"]; //[NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
-    overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
-    overlay.alpha = 0.5f;
-    //imgPicker.cameraOverlayView = overlay;
     
     //photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
     //photo.backgroundColor = [UIColor clearColor];
@@ -198,7 +203,7 @@
     
     
     photoCaptured = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 240, 180)];
-    photoCaptured.backgroundColor = [UIColor yellowColor];
+    photoCaptured.backgroundColor = [UIColor grayColor];
     //photoCaptured.image = [UIImage imageNamed:@"photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png"];
     [photoScrollView addSubview:photoCaptured];
     [self.view addSubview:photoScrollView];
@@ -298,6 +303,11 @@
     
 }
 
+#pragma mark -
+#pragma mark UIScrollView Delegate
+- (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {
+    return photoCaptured;
+}
 
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate
@@ -312,7 +322,8 @@
     //photo.image = img;
     //photo.hidden = NO;
     background.hidden = NO;
-	[picker dismissModalViewControllerAnimated:YES];
+    imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+	[imgPicker dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
