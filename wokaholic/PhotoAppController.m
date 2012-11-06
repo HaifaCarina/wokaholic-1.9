@@ -382,6 +382,8 @@
                           otherButtonTitles:nil];
     [alert show];
     [alert release];
+    
+    [facebook logout];
 }
 
 
