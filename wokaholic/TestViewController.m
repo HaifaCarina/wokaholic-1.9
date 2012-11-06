@@ -50,7 +50,7 @@
     return productId;
 }
 - (void) changeProduct: (UITapGestureRecognizer *) sender {
-    NSLog(@"%d", sender.view.tag);
+    NSLog(@"changeProduct %d", sender.view.tag);
     
    // background.image = [UIImage imageNamed:@"free-standing-cookers-main@2x"];
     main.backgroundColor = [UIColor blackColor];
@@ -93,7 +93,7 @@
 }
 //hoodsGalleryChange: 
 - (void) crGalleryChange: (UITapGestureRecognizer *) sender {
-    NSLog(@"%d", sender.view.tag);
+    NSLog(@"crGalleryChange:%d", sender.view.tag);
     switch (sender.view.tag) {
         case 1: {
             crGallerySS.backgroundColor = UIColorFromRGB(0x828282);
@@ -140,6 +140,8 @@
 }
 
 - (void) crGalleryLev2Change: (UITapGestureRecognizer *) sender {
+    NSLog(@"crGalleryLev2Change:");
+    
     switch (sender.view.tag) {
         case 1: {
             NSString *imgName = [NSString stringWithFormat:@"free-standing-cookers-gallery-ss-50@2x.png"];
@@ -176,7 +178,7 @@
 
 
 - (void) hoodsGalleryChange: (UITapGestureRecognizer *) sender {
-    NSLog(@"%d", sender.view.tag);
+    NSLog(@"hoodsGalleryChange: %d", sender.view.tag);
     switch (sender.view.tag) {
         case 1: {
             hoodsGallerySL.backgroundColor = UIColorFromRGB(0x828282);
@@ -214,6 +216,7 @@
     
 }
 - (void) hoodsGalleryLev2Change: (UITapGestureRecognizer *) sender {
+    NSLog(@"hoodsGalleryLev2Change");
     switch (sender.view.tag) {
         case 1: {
             NSString *imgName = [NSString stringWithFormat:@"hoods-gallery-sl-60@2x.png"];
@@ -235,8 +238,71 @@
     hoodsGallerySL90.hidden = YES;
     
 }
+
+- (void) hoodsSpecsChange: (UITapGestureRecognizer *) sender {
+    NSLog(@"hoodsSpecsChange:%d", sender.view.tag);
+    switch (sender.view.tag) {
+        case 1: {
+            hoodsSpecsSL.backgroundColor = UIColorFromRGB(0x828282);
+            hoodsSpecsC.backgroundColor = UIColorFromRGB(0xC2C2C2);
+            
+            hoodsSpecsSL60.hidden = NO;
+            hoodsSpecsSL90.hidden = NO;
+            
+            /*crGallerySS50.hidden = NO;
+             crGallerySS60.hidden = NO;
+             crGallerySS90.hidden = NO;
+             crGalleryBS50.hidden = YES;
+             */
+            break;
+        }
+        case 2: {
+            NSString *imgName = [NSString stringWithFormat:@"hoods-specs-c-90@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            
+            hoodsSpecsSL.hidden =YES;
+            hoodsSpecsC.hidden =YES;
+            hoodsSpecsSL60.hidden = YES;
+            hoodsSpecsSL90.hidden = YES;
+            //crGallerySS.backgroundColor = UIColorFromRGB(0xC2C2C2);
+            //crGalleryBS.backgroundColor = UIColorFromRGB(0x828282);//828282
+            /*
+             crGallerySS50.hidden = YES;
+             crGallerySS60.hidden = YES;
+             crGallerySS90.hidden = YES;
+             crGalleryBS50.hidden = NO;
+             */
+            break;
+        }
+    }
+    
+}
+
+- (void) hoodsSpecsLev2Change: (UITapGestureRecognizer *) sender {
+    NSLog(@"hoodsGalleryLev2Change");
+    switch (sender.view.tag) {
+        case 1: {
+            NSString *imgName = [NSString stringWithFormat:@"hoods-specs-sl-60@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            
+            
+            break;
+        }
+        case 2: {
+            NSString *imgName = [NSString stringWithFormat:@"hoods-specs-sl-90@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            break;
+        }
+    }
+    
+    hoodsSpecsSL.hidden =YES;
+    hoodsSpecsC.hidden =YES;
+    hoodsSpecsSL60.hidden = YES;
+    hoodsSpecsSL90.hidden = YES;
+    
+}
 - (void) changeInfo: (UITapGestureRecognizer *) sender {
-    NSLog(@"%d", currentProduct);
+    NSLog(@"changeInfo:%d", currentProduct);
     
     // background.image = [UIImage imageNamed:@"free-standing-cookers-main@2x"];
     
@@ -258,7 +324,8 @@
             } else if (currentProduct == 4) {
                 hoodsGallerySL.hidden = YES;
                 hoodsGalleryC.hidden = YES;
-                
+                hoodsSpecsSL.hidden = YES;
+                hoodsSpecsC.hidden = YES;
             }
             break;
 
@@ -281,6 +348,8 @@
                 imgName = [NSString stringWithFormat:@"hoods-gallery-sl-60@2x.png"];
                 hoodsGallerySL.hidden = NO;
                 hoodsGalleryC.hidden = NO;
+                hoodsSpecsSL.hidden = YES;
+                hoodsSpecsC.hidden = YES;
                 
             }
             
@@ -309,6 +378,9 @@
                 imgName = [NSString stringWithFormat:@"hoods-specs-sl-60@2x.png"];
                 hoodsGallerySL.hidden = YES;
                 hoodsGalleryC.hidden = YES;
+                hoodsSpecsSL.hidden = NO;
+                hoodsSpecsC.hidden = NO;
+                
                 
             }
             background.image = [UIImage imageNamed:imgName];
@@ -546,7 +618,7 @@
     [crSpecsBSTap release];
     
     /**
-     COOKING RANGES GALLERY
+     HOODS GALLERY
      **/
     hoodsGallerySL = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200, 91 +40, 200, 40)];
     hoodsGallerySL.text = @"Slim Line";
@@ -599,6 +671,59 @@
     [hoodsGallerySL90 setUserInteractionEnabled:YES];
     [hoodsGallerySL90Tap release];
     hoodsGallerySL90.hidden = YES;
+    
+    /****/
+    hoodsSpecsSL = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 + 40, 250, 40)];
+    hoodsSpecsSL.text = @"Slim Line";
+    hoodsSpecsSL.tag = 1;
+    [hoodsSpecsSL setTextAlignment:UITextAlignmentCenter];
+    hoodsSpecsSL.textColor = [UIColor whiteColor];
+    hoodsSpecsSL.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsSpecsSL];
+    UITapGestureRecognizer *hoodsSpecsSLTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsChange: ) ];
+    [hoodsSpecsSL addGestureRecognizer:hoodsSpecsSLTap];
+    [hoodsSpecsSL setUserInteractionEnabled:YES];
+    [hoodsSpecsSLTap release];
+    hoodsSpecsSL.hidden = YES;
+    
+    hoodsSpecsC = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 + 40 + 40, 250, 40)];
+    hoodsSpecsC.text = @"Chimney";
+    hoodsSpecsC.tag = 2;
+    [hoodsSpecsC setTextAlignment:UITextAlignmentCenter];
+    hoodsSpecsC.textColor = [UIColor whiteColor];
+    hoodsSpecsC.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsSpecsC];
+    UITapGestureRecognizer *hoodsSpecsCTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsChange: ) ];
+    [hoodsSpecsC addGestureRecognizer:hoodsSpecsCTap];
+    [hoodsSpecsC setUserInteractionEnabled:YES];
+    [hoodsSpecsCTap release];
+    hoodsSpecsC.hidden = YES;
+    
+    hoodsSpecsSL60 = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200+ 250, 91 +40, 250, 40)];
+    hoodsSpecsSL60.text = @"60 cm";
+    hoodsSpecsSL60.tag = 1;
+    [hoodsSpecsSL60 setTextAlignment:UITextAlignmentCenter];
+    hoodsSpecsSL60.textColor = [UIColor whiteColor];
+    hoodsSpecsSL60.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsSpecsSL60];
+    UITapGestureRecognizer *hoodsSpecsSL60Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsLev2Change: ) ];
+    [hoodsSpecsSL60 addGestureRecognizer:hoodsSpecsSL60Tap];
+    [hoodsSpecsSL60 setUserInteractionEnabled:YES];
+    [hoodsSpecsSL60Tap release];
+    hoodsSpecsSL60.hidden = YES;
+    
+    hoodsSpecsSL90 = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200 + 250, 91 +40 + 40, 250, 40)];
+    hoodsSpecsSL90.text = @"90 cm";
+    hoodsSpecsSL90.tag = 2;
+    [hoodsSpecsSL90 setTextAlignment:UITextAlignmentCenter];
+    hoodsSpecsSL90.textColor = [UIColor whiteColor];
+    hoodsSpecsSL90.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsSpecsSL90];
+    UITapGestureRecognizer *hoodsSpecsSL90Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsLev2Change: ) ];
+    [hoodsSpecsSL90 addGestureRecognizer:hoodsSpecsSL90Tap];
+    [hoodsSpecsSL90 setUserInteractionEnabled:YES];
+    [hoodsSpecsSL90Tap release];
+    hoodsSpecsSL90.hidden = YES;
     
     // HOME BUTTON
     UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(10, 700, 60, 54)];

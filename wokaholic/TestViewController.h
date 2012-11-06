@@ -29,5 +29,10 @@
     UILabel *hoodsGallerySL90;
     UILabel *hoodsGalleryC;
     
+    UILabel *hoodsSpecsSL;
+    UILabel *hoodsSpecsSL60;
+    UILabel *hoodsSpecsSL90;
+    UILabel *hoodsSpecsC;
+    
 }
 @end
