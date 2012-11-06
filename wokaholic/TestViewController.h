@@ -24,5 +24,10 @@
     UILabel *crSpecsSS;
     UILabel *crSpecsBS;
     
+    UILabel *hoodsGallerySL;
+    UILabel *hoodsGallerySL60;
+    UILabel *hoodsGallerySL90;
+    UILabel *hoodsGalleryC;
+    
 }
 @end

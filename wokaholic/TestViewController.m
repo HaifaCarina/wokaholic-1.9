@@ -91,7 +91,7 @@
     }
     
 }
-
+//hoodsGalleryChange: 
 - (void) crGalleryChange: (UITapGestureRecognizer *) sender {
     NSLog(@"%d", sender.view.tag);
     switch (sender.view.tag) {
@@ -173,6 +173,68 @@
     crGalleryBS50.hidden = YES;
     
 }
+
+
+- (void) hoodsGalleryChange: (UITapGestureRecognizer *) sender {
+    NSLog(@"%d", sender.view.tag);
+    switch (sender.view.tag) {
+        case 1: {
+            hoodsGallerySL.backgroundColor = UIColorFromRGB(0x828282);
+            hoodsGalleryC.backgroundColor = UIColorFromRGB(0xC2C2C2);
+            
+            hoodsGallerySL60.hidden = NO;
+            hoodsGallerySL90.hidden = NO;
+            
+            /*crGallerySS50.hidden = NO;
+            crGallerySS60.hidden = NO;
+            crGallerySS90.hidden = NO;
+            crGalleryBS50.hidden = YES;
+            */
+            break;
+        }
+        case 2: {
+            NSString *imgName = [NSString stringWithFormat:@"hoods-gallery-c-90@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            
+            hoodsGallerySL.hidden =YES;
+            hoodsGalleryC.hidden =YES;
+            hoodsGallerySL60.hidden = YES;
+            hoodsGallerySL90.hidden = YES;
+            //crGallerySS.backgroundColor = UIColorFromRGB(0xC2C2C2);
+            //crGalleryBS.backgroundColor = UIColorFromRGB(0x828282);//828282
+            /*
+            crGallerySS50.hidden = YES;
+            crGallerySS60.hidden = YES;
+            crGallerySS90.hidden = YES;
+            crGalleryBS50.hidden = NO;
+             */
+            break;
+        }
+    }
+    
+}
+- (void) hoodsGalleryLev2Change: (UITapGestureRecognizer *) sender {
+    switch (sender.view.tag) {
+        case 1: {
+            NSString *imgName = [NSString stringWithFormat:@"hoods-gallery-sl-60@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            
+            
+            break;
+        }
+        case 2: {
+            NSString *imgName = [NSString stringWithFormat:@"hoods-gallery-sl-90@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            break;
+        }
+    }
+    
+    hoodsGallerySL.hidden =YES;
+    hoodsGalleryC.hidden =YES;
+    hoodsGallerySL60.hidden = YES;
+    hoodsGallerySL90.hidden = YES;
+    
+}
 - (void) changeInfo: (UITapGestureRecognizer *) sender {
     NSLog(@"%d", currentProduct);
     
@@ -193,6 +255,10 @@
                 crGalleryBS.hidden = YES;
                 crSpecsSS.hidden = YES;
                 crSpecsBS.hidden = YES;
+            } else if (currentProduct == 4) {
+                hoodsGallerySL.hidden = YES;
+                hoodsGalleryC.hidden = YES;
+                
             }
             break;
 
@@ -209,7 +275,14 @@
                 crGalleryBS.hidden = NO;
                 crSpecsSS.hidden = YES;
                 crSpecsBS.hidden = YES;
-            } 
+                hoodsGallerySL.hidden = YES;
+                hoodsGalleryC.hidden = YES;
+            } else if (currentProduct == 4) {
+                imgName = [NSString stringWithFormat:@"hoods-gallery-sl-60@2x.png"];
+                hoodsGallerySL.hidden = NO;
+                hoodsGalleryC.hidden = NO;
+                
+            }
             
             background.image = [UIImage imageNamed:imgName];
             
@@ -230,6 +303,13 @@
                 crGalleryBS.hidden = YES;
                 crSpecsSS.hidden = NO;
                 crSpecsBS.hidden = NO;
+                hoodsGallerySL.hidden = YES;
+                hoodsGalleryC.hidden = YES;
+            } else if (currentProduct == 4) {
+                imgName = [NSString stringWithFormat:@"hoods-specs-sl-60@2x.png"];
+                hoodsGallerySL.hidden = YES;
+                hoodsGalleryC.hidden = YES;
+                
             }
             background.image = [UIImage imageNamed:imgName];
             break;
@@ -464,6 +544,61 @@
     [crSpecsBS addGestureRecognizer:crSpecsBSTap];
     [crSpecsBS setUserInteractionEnabled:YES];
     [crSpecsBSTap release];
+    
+    /**
+     COOKING RANGES GALLERY
+     **/
+    hoodsGallerySL = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200, 91 +40, 200, 40)];
+    hoodsGallerySL.text = @"Slim Line";
+    hoodsGallerySL.tag = 1;
+    [hoodsGallerySL setTextAlignment:UITextAlignmentCenter];
+    hoodsGallerySL.textColor = [UIColor whiteColor];
+    hoodsGallerySL.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsGallerySL];
+    UITapGestureRecognizer *hoodsGallerySLTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryChange: ) ];
+    [hoodsGallerySL addGestureRecognizer:hoodsGallerySLTap];
+    [hoodsGallerySL setUserInteractionEnabled:YES];
+    [hoodsGallerySLTap release];
+    hoodsGallerySL.hidden = YES;
+    
+    hoodsGalleryC = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200, 91 +40 + 40, 200, 40)];
+    hoodsGalleryC.text = @"Chimney";
+    hoodsGalleryC.tag = 2;
+    [hoodsGalleryC setTextAlignment:UITextAlignmentCenter];
+    hoodsGalleryC.textColor = [UIColor whiteColor];
+    hoodsGalleryC.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsGalleryC];
+    UITapGestureRecognizer *hoodsGalleryCTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryChange: ) ];
+    [hoodsGalleryC addGestureRecognizer:hoodsGalleryCTap];
+    [hoodsGalleryC setUserInteractionEnabled:YES];
+    [hoodsGalleryCTap release];
+    hoodsGalleryC.hidden = YES;
+    
+    hoodsGallerySL60 = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 +40, 200, 40)];
+    hoodsGallerySL60.text = @"60 cm";
+    hoodsGallerySL60.tag = 1;
+    [hoodsGallerySL60 setTextAlignment:UITextAlignmentCenter];
+    hoodsGallerySL60.textColor = [UIColor whiteColor];
+    hoodsGallerySL60.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsGallerySL60];
+    UITapGestureRecognizer *hoodsGallerySL60Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryLev2Change: ) ];
+    [hoodsGallerySL60 addGestureRecognizer:hoodsGallerySL60Tap];
+    [hoodsGallerySL60 setUserInteractionEnabled:YES];
+    [hoodsGallerySL60Tap release];
+    hoodsGallerySL60.hidden = YES;
+    
+    hoodsGallerySL90 = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 +40 + 40, 200, 40)];
+    hoodsGallerySL90.text = @"90 cm";
+    hoodsGallerySL90.tag = 2;
+    [hoodsGallerySL90 setTextAlignment:UITextAlignmentCenter];
+    hoodsGallerySL90.textColor = [UIColor whiteColor];
+    hoodsGallerySL90.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    [self.view addSubview:hoodsGallerySL90];
+    UITapGestureRecognizer *hoodsGallerySL90Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryLev2Change: ) ];
+    [hoodsGallerySL90 addGestureRecognizer:hoodsGallerySL90Tap];
+    [hoodsGallerySL90 setUserInteractionEnabled:YES];
+    [hoodsGallerySL90Tap release];
+    hoodsGallerySL90.hidden = YES;
     
     // HOME BUTTON
     UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(10, 700, 60, 54)];
