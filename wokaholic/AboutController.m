@@ -22,7 +22,7 @@
     [self.view addSubview:background];
     
     // HOME BUTTON
-    UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(10, 700, 60, 54)];
+    UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(950, 700, 60, 54)];
     home.image = [UIImage imageNamed:@"home-button.png"];
     home.backgroundColor = [UIColor clearColor];
     [self.view addSubview:home];

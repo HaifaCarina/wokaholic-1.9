@@ -90,9 +90,13 @@
     switch ([genderOptions selectedSegmentIndex]) {
         case 0:
             gender = @"male";
+            overlay.image = [UIImage imageNamed:@"photoapp-male-crop.png"];
+            photoScrollView.frame = CGRectMake(770, 60, 180, 180);
             break;
         case 1:
             gender = @"female";
+            overlay.image = [UIImage imageNamed:@"photoapp-female-crop.png"];
+            photoScrollView.frame = CGRectMake(755, 65, 180, 180);
             break;
     }
     
