@@ -90,8 +90,19 @@
             
     }
     
+    crGallerySS.hidden = YES;
+    crGalleryBS.hidden = YES;
+    crGallerySS50.hidden = YES;
+    crGallerySS60.hidden = YES;
+    crGallerySS90.hidden = YES;
+    crGalleryBS50.hidden = YES;
+    hoodsGallerySL.hidden =YES;
+    hoodsGalleryC.hidden =YES;
+    hoodsGallerySL60.hidden = YES;
+    hoodsGallerySL90.hidden = YES;
+    
 }
-//hoodsGalleryChange: 
+
 - (void) crGalleryChange: (UITapGestureRecognizer *) sender {
     NSLog(@"crGalleryChange:%d", sender.view.tag);
     switch (sender.view.tag) {
@@ -124,11 +135,14 @@
         case 1: {
             NSString *imgName = [NSString stringWithFormat:@"free-standing-cookers-specs-ss@2x.png"];
             background.image = [UIImage imageNamed:imgName];
+            
             break;
         }
         case 2: {
             NSString *imgName = [NSString stringWithFormat:@"free-standing-cookers-specs-bs@2x.png"];
             background.image = [UIImage imageNamed:imgName];
+            
+            
             break;
         }
     }
