@@ -17,7 +17,6 @@
     PhotoAppController *photoAppController;
     Facebook *facebook;
     NSMutableDictionary *params;
-    //UIActivityIndicatorView *spinner;
     
 }
 

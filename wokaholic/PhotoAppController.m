@@ -126,6 +126,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                     snapshot.image, @"source",
                                     @"Yeheeey!", @"message",
+                                   @"Electrolux Wok-A-Holic PhotoApp image has been posted to your Facebook wall.", @"alertmessage",
                                     nil];
     [appDelegate facebookSetParameters:params];
     

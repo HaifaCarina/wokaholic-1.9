@@ -76,9 +76,6 @@
 - (void)fbDidLogin {
     NSLog(@"fb did login");
     photoAppController.pleaseWait.hidden = NO;
-    //[photoAppController.spinner startAnimating];
-    //[photoAppController.view addSubview:spinner];
-    //[spinner startAnimating];
     [self postParameters];
 }
 
@@ -99,11 +96,10 @@
     NSLog(@"request returns %@",result);
     
     [facebook logout];
-    //[spinner stopAnimating];
-    
+    NSLog(@"Message %@", [params objectForKey:@"alertmessage"]);
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle: @"Success"
-                          message: @"PhotoApp snapshot has been posted to your Facebook wall."
+                          message: [params objectForKey:@"alertmessage"] //@"Electrolux Wok-A-Holic Image has been posted to your Facebook wall."
                           delegate: nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
