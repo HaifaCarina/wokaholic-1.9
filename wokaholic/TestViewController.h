@@ -34,5 +34,9 @@
     UILabel *hoodsSpecsSL90;
     UILabel *hoodsSpecsC;
     
+    UIImageView *dishwasherOptions;
+    UIImageView *builtinOption;
+    UIImageView *compactOption;
+    
 }
 @end

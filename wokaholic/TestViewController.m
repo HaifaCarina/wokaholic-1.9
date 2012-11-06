@@ -42,6 +42,12 @@
             productId = [NSString stringWithFormat:@"microwave-ovens"];
             break;
         case 6:
+            productId = [NSString stringWithFormat:@"dishwasher-compact"];
+            break;
+        case 7:
+            productId = [NSString stringWithFormat:@"dishwasher-compact"];
+            break;
+        case 8:
             productId = [NSString stringWithFormat:@"dishwasher-builtin"];
             break;
             
@@ -83,9 +89,22 @@
             currentProduct = 5;
             break;
         case 6:
+            background.image = [UIImage imageNamed:@"dishwasher-compact-main@2x.png"];
+            main.text = @"Dishwashers";
+            dishwasherOptions.hidden = NO;
+            builtinOption.hidden = NO;
+            compactOption.hidden = NO;
+            currentProduct = 6;
+            break;
+        case 7:
+            background.image = [UIImage imageNamed:@"dishwasher-compact-main@2x.png"];
+            main.text = @"Dishwashers";
+            currentProduct = 7;
+            break;
+        case 8:
             background.image = [UIImage imageNamed:@"dishwasher-builtin-main@2x.png"];
             main.text = @"Dishwashers";
-            currentProduct = 6;
+            currentProduct = 8;
             break;
             
     }
@@ -315,6 +334,7 @@
     hoodsSpecsSL90.hidden = YES;
     
 }
+
 - (void) changeInfo: (UITapGestureRecognizer *) sender {
     NSLog(@"changeInfo:%d", currentProduct);
     
@@ -328,7 +348,6 @@
             gallery.backgroundColor = UIColorFromRGB(0xa11a20);
             specs.backgroundColor = UIColorFromRGB(0xa11a20);
             imgName = [NSString stringWithFormat:@"%@-main@2x.png",[self getProductId:currentProduct]];
-            background.image = [UIImage imageNamed:imgName];
             
             if (currentProduct == 1) {
                 crGallerySS.hidden = YES;
@@ -340,7 +359,14 @@
                 hoodsGalleryC.hidden = YES;
                 hoodsSpecsSL.hidden = YES;
                 hoodsSpecsC.hidden = YES;
-            }
+            } /*else if (currentProduct == 7) {
+                imgName = [NSString stringWithFormat:@"dishwasher-compact-main@2x.png"];
+            } else if (currentProduct == 8) {
+                imgName = [NSString stringWithFormat:@"dishwasher-builtin-main@2x.png"];
+            } */
+            
+            background.image = [UIImage imageNamed:imgName];
+            
             break;
 
         }
@@ -365,8 +391,12 @@
                 hoodsSpecsSL.hidden = YES;
                 hoodsSpecsC.hidden = YES;
                 
+            } /*else if (currentProduct == 7) {
+                imgName = [NSString stringWithFormat:@"dishwasher-compact-gallery@2x.png"];
+            } else if (currentProduct == 8) {
+                imgName = [NSString stringWithFormat:@"dishwasher-builtin-gallery@2x.png"];
             }
-            
+            */
             background.image = [UIImage imageNamed:imgName];
             
             
@@ -396,7 +426,11 @@
                 hoodsSpecsC.hidden = NO;
                 
                 
-            }
+            } /*else if (currentProduct == 7) {
+                NSLog(@"the error is here changeinfo7");// imgName = [NSString stringWithFormat:@"dishwasher-compact-specs@2x.png"];
+            } else if (currentProduct == 8) {
+                NSLog(@"the error is here changeinfo8");//imgName = [NSString stringWithFormat:@"dishwasher-builtin-specs@2x.png"];
+            }*/
             background.image = [UIImage imageNamed:imgName];
             break;
         }
@@ -405,9 +439,37 @@
     }
    
 }
+
+
+- (void) dishwasherOptionsChange: (UITapGestureRecognizer *) sender {
+    NSLog(@"dishwasherOptionsChange: %d",sender.view.tag);
+    switch (sender.view.tag) {
+        case 1:
+        {
+            dishwasherOptions.image = [UIImage imageNamed:@"dishwasher-button-compact.png"];
+            background.image = [UIImage imageNamed:@"dishwasher-compact-main@2x.png"];
+            main.text = @"Compact Dishwasher";
+            currentProduct = 7;
+            break;
+        }
+        case 2:
+        {
+            dishwasherOptions.image = [UIImage imageNamed:@"dishwasher-button-builtin.png"];
+            background.image = [UIImage imageNamed:@"dishwasher-builtin-main@2x.png"];
+            main.text = @"Built In Dishwasher";
+            currentProduct = 8;
+            break;
+        }
+    }
+    
+    dishwasherOptions.hidden = YES;
+    builtinOption.hidden = YES;
+    compactOption.hidden = YES;
+}
 - (void) tappedHome {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 - (void)viewDidLoad
 {
@@ -738,6 +800,32 @@
     [hoodsSpecsSL90 setUserInteractionEnabled:YES];
     [hoodsSpecsSL90Tap release];
     hoodsSpecsSL90.hidden = YES;
+    
+    UIImage *dishwasherButton = [UIImage imageNamed:@"dishwasher-button-compact.png"];
+    dishwasherOptions = [[UIImageView alloc]initWithImage:dishwasherButton];
+    dishwasherOptions.frame = CGRectMake(900, 38, dishwasherButton.size.width/2, dishwasherButton.size.height/2);
+    [self.view addSubview:dishwasherOptions];
+    dishwasherOptions.hidden = YES;
+    
+    compactOption = [[UIImageView alloc]initWithFrame:CGRectMake(900, 40, dishwasherButton.size.width/2, 35)];
+    compactOption.tag = 1;
+    [self.view addSubview:compactOption];
+    compactOption.hidden = YES;
+    UITapGestureRecognizer *compactOptionTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dishwasherOptionsChange: ) ];
+    [compactOption addGestureRecognizer:compactOptionTap];
+    [compactOption setUserInteractionEnabled:YES];
+    [compactOptionTap release];
+    
+    builtinOption = [[UIImageView alloc]initWithFrame:CGRectMake(900, 75, dishwasherButton.size.width/2, 35)];
+    builtinOption.tag = 2;
+    [self.view addSubview:builtinOption];
+    builtinOption.hidden = YES;
+    UITapGestureRecognizer *builtinOptionTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dishwasherOptionsChange: ) ];
+    [builtinOption addGestureRecognizer:builtinOptionTap];
+    [builtinOption setUserInteractionEnabled:YES];
+    [builtinOptionTap release];
+    
+    
     
     // HOME BUTTON
     UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(10, 700, 60, 54)];
