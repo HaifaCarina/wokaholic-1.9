@@ -8,6 +8,7 @@
 
 #import "PhotoAppController.h"
 #import "AppDelegate.h"
+
 @implementation PhotoAppController
 @synthesize imgPicker, snapshot, spinner, pleaseWait;//, facebook; //, scrollView;
 
@@ -15,9 +16,23 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void) shoot{
+    
+    imgPicker = [[UIImagePickerController alloc] init];
+    imgPicker.delegate = self;
+    imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    //imgPicker.allowsEditing = YES;
+    imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    
+    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-female-crop.png"]];
+    overlay.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    overlay.alpha = 0.5f;
+    imgPicker.cameraOverlayView = overlay;
+    
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     [self presentModalViewController:imgPicker animated:YES];
+    
+    
 }
 
 - (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
@@ -131,72 +146,17 @@
                                     nil];
     [appDelegate facebookSetParameters:params];
     
-    /*
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"FBAccessTokenKey"]
-        && [defaults objectForKey:@"FBExpirationDateKey"]) {
-        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
-        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
-    }
     
-    if (![facebook isSessionValid]) {
-        NSLog(@"START sSessionValid");
-        NSArray *permissions = [[NSArray alloc] initWithObjects:
-                                @"user_likes",
-                                @"read_stream",@"user_about_me", @"publish_stream", @"user_photos",
-                                nil];
-        [facebook authorize:permissions];
-        NSLog(@"PERMISSION DONE");
-        [permissions release];
-        //UIImage *image = [UIImage imageNamed:@"home-button.png"];
-        NSMutableDictionary *params1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                        snapshot.image, @"source",
-                                        @"caption desc", @"message",
-                                        nil];
-        [facebook requestWithGraphPath:@"/me/photos"
-                             andParams:params1 andHttpMethod:@"POST" andDelegate:self];
-        NSLog(@"REQUEST DONE");
-    } else {
-        NSLog(@"post again");
-        NSMutableDictionary *params1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                        snapshot.image, @"source",
-                                        @"caption desc", @"message",
-                                        nil];
-        [facebook requestWithGraphPath:@"/me/photos"
-                             andParams:params1 andHttpMethod:@"POST" andDelegate:self];
-    }
-    NSLog(@"END sSessionValid");
-    */
-    //[spinner startAnimating];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
-    
-    NSLog(@"viewdidappear");
-    imgPicker = [[UIImagePickerController alloc] init];
-    imgPicker.delegate = self;
-    imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    //imgPicker.allowsEditing = YES;
-    imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-    
-    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-female-crop.png"]];
-    overlay.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    overlay.alpha = 0.5f;
-    
-    imgPicker.cameraOverlayView = overlay;
-}
 - (void) loadView {
     NSLog(@"loadView");
-    //facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
+    
     
     [super loadView];
     
     
     fileName = [[NSString alloc]initWithString:@"photoapp-male-parmesan-crusted-fish.png"]; //[NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
-    
-    //photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
-    //photo.backgroundColor = [UIColor clearColor];
-    //[self.view addSubview:photo];
     
     photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(770, 60, 180, 180)];
     photoScrollView.backgroundColor = [UIColor redColor];
@@ -212,7 +172,7 @@
     
     photoCaptured = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 240, 180)];
     photoCaptured.backgroundColor = [UIColor grayColor];
-    //photoCaptured.image = [UIImage imageNamed:@"photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png"];
+    
     [photoScrollView addSubview:photoCaptured];
     [self.view addSubview:photoScrollView];
     
@@ -340,71 +300,12 @@
     background.hidden = NO;
     imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
 	[imgPicker dismissModalViewControllerAnimated:YES];
+    [imgPicker release];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft );
 }
-
-#pragma mark -
-#pragma mark Facebook Methods
-/*
-- (void)fbDidLogin {
-    NSLog(@"fbDidLogin ");
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
-    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-    
-    //UIImage *image = [UIImage imageNamed:@"home-button.png"];
-    NSLog(@"PLEASE WOOOOORK! T___T ");
-    NSMutableDictionary *params1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                    snapshot.image, @"source",
-                                    @"Yeheeey!", @"message",
-                                    nil];
-    [facebook requestWithGraphPath:@"/me/photos"
-                         andParams:params1 andHttpMethod:@"POST" andDelegate:self];
-    NSLog(@"YEY! IT WORKED! T___T ");
-        
-}
-- (void) fbDidLogout {
-    NSLog(@"fbDidLogout ");
-    // Remove saved authorization information if it exists
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"FBAccessTokenKey"]) {
-        [defaults removeObjectForKey:@"FBAccessTokenKey"];
-        [defaults removeObjectForKey:@"FBExpirationDateKey"];
-        [defaults synchronize];
-    }
-}
-
--(void)request:(FBRequest *)request didLoad:(id)result {
-    NSLog(@"Request didLoad: %@ ", [request url ]);
-    if ([result isKindOfClass:[NSArray class]]) {
-        result = [result objectAtIndex:0];
-    }
-    if ([result isKindOfClass:[NSDictionary class]]){
-        
-    }
-    if ([result isKindOfClass:[NSData class]]) {
-    }
-    NSLog(@"request returns %@",result);
-    [spinner stopAnimating];
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"Success"
-                          message: @"PhotoApp snapshot has been posted to your Facebook wall."
-                          delegate: nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
-    [alert show];
-    [alert release];
-    
-    [facebook logout];
-}
-
-*/
-
-
 
 
 @end
