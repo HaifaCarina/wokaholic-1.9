@@ -60,7 +60,7 @@
     
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"user_likes",
-                            @"read_stream",@"user_about_me", @"publish_stream", @"user_photos",
+                            @"read_stream",@"user_about_me", @"publish_stream", @"user_photos", @"email",
                             nil];
     [facebook authorize:permissions];
     
@@ -75,18 +75,17 @@
 
 - (void)fbDidLogin {
     NSLog(@"fb did login");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+
+    [facebook requestWithGraphPath: @"me" andDelegate: self];
+    
     photoAppController.pleaseWait.hidden = NO;
     [self postParameters];
-    //Dummy data
-    NSString *name = @"Haifa";
-    NSString *email = @"haifa@baluyos.net";
-    // Records to database
-    NSString *recordLink = [NSString stringWithFormat:@"http://nmgdev.com/mobile/wokaholic/record.php?category=%@&&name=%@&&email=%@",
-                            [params objectForKey:@"category"],
-                            name,
-                            email];
-	NSURL *url = [NSURL URLWithString:recordLink];
-	[NSData dataWithContentsOfURL:url];
+    
 }
 
 - (void) fbDidLogout {
@@ -106,15 +105,34 @@
     NSLog(@"request returns %@",result);
     
     [facebook logout];
-    NSLog(@"Message %@", [params objectForKey:@"alertmessage"]);
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"Success"
-                          message: [params objectForKey:@"alertmessage"] //@"Electrolux Wok-A-Holic Image has been posted to your Facebook wall."
-                          delegate: nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
-    [alert show];
-    [alert release];
+    
+    NSString *name = [NSString stringWithFormat:@"%@ %@", [result objectForKey: @"first_name"], [result objectForKey: @"last_name"]];
+    name = [name stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+    NSString *email = [result objectForKey: @"email"];
+    
+    
+    if (email.length == 0) {
+        NSLog(@"non-email request");
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Success"
+                              message: [params objectForKey:@"alertmessage"] //@"Electrolux Wok-A-Holic Image has been posted to your Facebook wall."
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } else {
+        // Records to database
+        NSString *recordLink = [NSString stringWithFormat:@"http://nmgdev.com/mobile/wokaholic/record.php?category=%@&&name=%@&&email=%@",
+                                [params objectForKey:@"category"],
+                                name,
+                                email];
+        NSLog(@"%@", recordLink);
+        NSURL *url = [NSURL URLWithString:recordLink];
+        [NSData dataWithContentsOfURL:url];
+    }
+    
+    
 
 }
 
