@@ -7,9 +7,9 @@
 //
 
 #import "PhotoAppController.h"
-
+#import "AppDelegate.h"
 @implementation PhotoAppController
-@synthesize imgPicker, snapshot, facebook; //, scrollView;
+@synthesize imgPicker, snapshot, spinner, pleaseWait;//, facebook; //, scrollView;
 
 - (void) tappedHome {
     [self.navigationController popViewControllerAnimated:YES];
@@ -121,9 +121,15 @@
 
 - (void) tappedFacebook {
     NSLog(@"postButtonClicked");
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                    snapshot.image, @"source",
+                                    @"Yeheeey!", @"message",
+                                    nil];
+    [appDelegate facebookSetParameters:params];
     
-    
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"]
         && [defaults objectForKey:@"FBExpirationDateKey"]) {
@@ -158,8 +164,8 @@
                              andParams:params1 andHttpMethod:@"POST" andDelegate:self];
     }
     NSLog(@"END sSessionValid");
-    
-    [spinner startAnimating];
+    */
+    //[spinner startAnimating];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -179,7 +185,7 @@
 }
 - (void) loadView {
     NSLog(@"loadView");
-    facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
+    //facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
     
     [super loadView];
     
@@ -295,11 +301,19 @@
     [back setUserInteractionEnabled:YES];
     [backTap release];
     
+    pleaseWait = [[UILabel alloc]initWithFrame:CGRectMake(410, 580, 200, 40)];
+    pleaseWait.textColor = [UIColor whiteColor];
+    pleaseWait.backgroundColor = [UIColor clearColor];
+    pleaseWait.text = @"Uploading. Please wait...";
+    pleaseWait.hidden = YES;
+    [self.view addSubview:pleaseWait];
     
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     spinner.center = CGPointMake(self.view.frame.size.height/2, self.view.frame.size.width/2);
     spinner.hidesWhenStopped = YES; 
     [self.view addSubview:spinner];
+    //[spinner startAnimating];
+    NSLog(@"spinner has been initialized");
     
 }
 
@@ -332,7 +346,7 @@
 
 #pragma mark -
 #pragma mark Facebook Methods
-
+/*
 - (void)fbDidLogin {
     NSLog(@"fbDidLogin ");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -385,6 +399,8 @@
     
     [facebook logout];
 }
+
+*/
 
 
 

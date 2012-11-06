@@ -22,15 +22,24 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize viewController, navController, photoAppController;
+@synthesize viewController, navController, photoAppController, facebook, params;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
+    params = [[NSMutableDictionary alloc] init];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
     viewController = [[RootViewController alloc] init];
     photoAppController = [[PhotoAppController alloc]init];
+    
+    /*
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner.center = CGPointMake(photoAppController.view.frame.size.height/2, photoAppController.view.frame.size.width/2);
+    spinner.hidesWhenStopped = YES;
+    */
     
     navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navController.navigationBar.hidden = YES;
@@ -42,17 +51,77 @@
 }
 
 #pragma mark -
+#pragma mark Custom Methods
+
+- (void) facebookSetParameters:(NSMutableDictionary *)parameters{
+    NSLog(@"facebookSetParameters");
+    
+    params = [[NSMutableDictionary alloc]initWithDictionary:parameters];
+    
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"user_likes",
+                            @"read_stream",@"user_about_me", @"publish_stream", @"user_photos",
+                            nil];
+    [facebook authorize:permissions];
+    
+}
+
+- (void) postParameters {
+    [facebook requestWithGraphPath:@"/me/photos" andParams:params andHttpMethod:@"POST" andDelegate:self];
+}
+
+#pragma mark -
 #pragma mark Facebook Methods
+
+- (void)fbDidLogin {
+    NSLog(@"fb did login");
+    photoAppController.pleaseWait.hidden = NO;
+    //[photoAppController.spinner startAnimating];
+    //[photoAppController.view addSubview:spinner];
+    //[spinner startAnimating];
+    [self postParameters];
+}
+
+- (void) fbDidLogout {
+    NSLog(@"fbDidLogout ");
+}
+
+-(void)request:(FBRequest *)request didLoad:(id)result {
+    NSLog(@"Request didLoad: %@ ", [request url ]);
+    if ([result isKindOfClass:[NSArray class]]) {
+        result = [result objectAtIndex:0];
+    }
+    if ([result isKindOfClass:[NSDictionary class]]){
+        
+    }
+    if ([result isKindOfClass:[NSData class]]) {
+    }
+    NSLog(@"request returns %@",result);
+    
+    [facebook logout];
+    //[spinner stopAnimating];
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"Success"
+                          message: @"PhotoApp snapshot has been posted to your Facebook wall."
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+
+}
+
 // Pre iOS 4.2 support
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     NSLog(@"DELEGATE Pre iOS 4.2 support");
-    return [[photoAppController facebook] handleOpenURL:url];
+    return [facebook handleOpenURL:url];
 }
 
 // For iOS 4.2+ support
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     NSLog(@"DELEGATE For iOS 4.2+ support ");
-    return [[photoAppController facebook] handleOpenURL:url];
+    return [facebook handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

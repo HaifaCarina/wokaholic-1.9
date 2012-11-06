@@ -9,16 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 #import "PhotoAppController.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+#import "FBConnect.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate,FBDialogDelegate, FBRequestDelegate> {
     RootViewController *viewController;
     UINavigationController *navController;
     PhotoAppController *photoAppController;
+    Facebook *facebook;
+    NSMutableDictionary *params;
+    //UIActivityIndicatorView *spinner;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) RootViewController *viewController;
 @property (nonatomic, retain) UINavigationController *navController;
 @property (nonatomic, retain) PhotoAppController *photoAppController;
+@property (nonatomic, retain) Facebook *facebook;
+@property (nonatomic, retain) NSMutableDictionary *params;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -26,5 +34,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (void) facebookSetParameters: (NSMutableDictionary *) parameters;
+- (void) postParameters;
 @end
