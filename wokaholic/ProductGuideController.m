@@ -208,11 +208,6 @@
             hoodsGallerySL60.hidden = NO;
             hoodsGallerySL90.hidden = NO;
             
-            /*crGallerySS50.hidden = NO;
-             crGallerySS60.hidden = NO;
-             crGallerySS90.hidden = NO;
-             crGalleryBS50.hidden = YES;
-             */
             break;
         }
         case 2: {
@@ -223,14 +218,7 @@
             hoodsGalleryC.hidden =YES;
             hoodsGallerySL60.hidden = YES;
             hoodsGallerySL90.hidden = YES;
-            //crGallerySS.backgroundColor = UIColorFromRGB(0xC2C2C2);
-            //crGalleryBS.backgroundColor = UIColorFromRGB(0x828282);//828282
-            /*
-             crGallerySS50.hidden = YES;
-             crGallerySS60.hidden = YES;
-             crGallerySS90.hidden = YES;
-             crGalleryBS50.hidden = NO;
-             */
+            
             break;
         }
     }
@@ -473,16 +461,18 @@
      [webView release];
      */
     
+    container = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    
     background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
     background.image = [UIImage imageNamed:@"free-standing-cookers-main@2x.png"];
     background.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:background];
+    [container addSubview:background];
     
     // COOKING RANGES
     UIImageView *cookingRanges = [[UIImageView alloc] initWithFrame:CGRectMake(340, 11, 140, 30)];
     cookingRanges.backgroundColor = [UIColor clearColor];
     cookingRanges.tag = 1;
-    [self.view addSubview:cookingRanges];
+    [container addSubview:cookingRanges];
     UITapGestureRecognizer *cookingRangesTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProduct: ) ];
     [cookingRanges addGestureRecognizer:cookingRangesTap];
     [cookingRanges setUserInteractionEnabled:YES];
@@ -492,7 +482,7 @@
     UIImageView *builtInOvens = [[UIImageView alloc] initWithFrame:CGRectMake(340 + 140, 11, 140, 30)];
     builtInOvens.backgroundColor = [UIColor clearColor];
     builtInOvens.tag = 2;
-    [self.view addSubview:builtInOvens];
+    [container addSubview:builtInOvens];
     UITapGestureRecognizer *builtInOvensTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProduct: ) ];
     [builtInOvens addGestureRecognizer:builtInOvensTap];
     [builtInOvens setUserInteractionEnabled:YES];
@@ -502,7 +492,7 @@
     UIImageView *hobs = [[UIImageView alloc] initWithFrame:CGRectMake(340 + 140 + 140, 11, 70, 30)];
     hobs.backgroundColor = [UIColor clearColor];
     hobs.tag = 3;
-    [self.view addSubview:hobs];
+    [container addSubview:hobs];
     UITapGestureRecognizer *hobsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProduct: ) ];
     [hobs addGestureRecognizer:hobsTap];
     [hobs setUserInteractionEnabled:YES];
@@ -512,7 +502,7 @@
     UIImageView *hoods = [[UIImageView alloc] initWithFrame:CGRectMake(340 + 140 + 140 + 70, 11, 70, 30)];
     hoods.backgroundColor = [UIColor clearColor];
     hoods.tag = 4;
-    [self.view addSubview:hoods];
+    [container addSubview:hoods];
     UITapGestureRecognizer *hoodsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProduct: ) ];
     [hoods addGestureRecognizer:hoodsTap];
     [hoods setUserInteractionEnabled:YES];
@@ -522,7 +512,7 @@
     UIImageView *microwaveOvens = [[UIImageView alloc] initWithFrame:CGRectMake(340 + 140 + 140 +70 +80, 11, 140, 30)];
     microwaveOvens.backgroundColor = [UIColor clearColor];
     microwaveOvens.tag = 5;
-    [self.view addSubview:microwaveOvens];
+    [container addSubview:microwaveOvens];
     UITapGestureRecognizer *microwaveOvensTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProduct: ) ];
     [microwaveOvens addGestureRecognizer:microwaveOvensTap];
     [microwaveOvens setUserInteractionEnabled:YES];
@@ -532,7 +522,7 @@
     UIImageView *dishwashers = [[UIImageView alloc] initWithFrame:CGRectMake(340 + 140 + 140 +70 + 80 + 140, 11, 100, 30)];
     dishwashers.backgroundColor = [UIColor clearColor];
     dishwashers.tag = 6;
-    [self.view addSubview:dishwashers];
+    [container addSubview:dishwashers];
     UITapGestureRecognizer *dishwashersTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeProduct: ) ];
     [dishwashers addGestureRecognizer:dishwashersTap];
     [dishwashers setUserInteractionEnabled:YES];
@@ -544,7 +534,7 @@
     main.backgroundColor = [UIColor blackColor];
     main.tag = 1;
     [main setTextAlignment:UITextAlignmentCenter];
-    [self.view addSubview:main];
+    [container addSubview:main];
     UITapGestureRecognizer *mainTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeInfo: ) ];
     [main addGestureRecognizer:mainTap];
     [main setUserInteractionEnabled:YES];
@@ -556,7 +546,7 @@
     gallery.backgroundColor = UIColorFromRGB(0xa11a20);
     gallery.tag = 2;
     [gallery setTextAlignment:UITextAlignmentCenter];
-    [self.view addSubview:gallery];
+    [container addSubview:gallery];
     UITapGestureRecognizer *galleryTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeInfo: ) ];
     [gallery addGestureRecognizer:galleryTap];
     [gallery setUserInteractionEnabled:YES];
@@ -568,7 +558,7 @@
     specs.backgroundColor = UIColorFromRGB(0xa11a20);
     specs.tag = 3;
     [specs setTextAlignment:UITextAlignmentCenter];
-    [self.view addSubview:specs];
+    [container addSubview:specs];
     UITapGestureRecognizer *specsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeInfo: ) ];
     [specs addGestureRecognizer:specsTap];
     [specs setUserInteractionEnabled:YES];
@@ -582,7 +572,7 @@
     [crGallerySS setTextAlignment:UITextAlignmentCenter];
     crGallerySS.textColor = [UIColor whiteColor];
     crGallerySS.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:crGallerySS];
+    [container addSubview:crGallerySS];
     UITapGestureRecognizer *crGallerySSTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crGalleryChange: ) ];
     [crGallerySS addGestureRecognizer:crGallerySSTap];
     [crGallerySS setUserInteractionEnabled:YES];
@@ -595,7 +585,7 @@
     [crGalleryBS setTextAlignment:UITextAlignmentCenter];
     crGalleryBS.textColor = [UIColor whiteColor];
     crGalleryBS.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:crGalleryBS];
+    [container addSubview:crGalleryBS];
     UITapGestureRecognizer *crGalleryBSTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crGalleryChange: ) ];
     [crGalleryBS addGestureRecognizer:crGalleryBSTap];
     [crGalleryBS setUserInteractionEnabled:YES];
@@ -608,7 +598,7 @@
     [crGallerySS50 setTextAlignment:UITextAlignmentCenter];
     crGallerySS50.textColor = [UIColor whiteColor];
     crGallerySS50.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:crGallerySS50];
+    [container addSubview:crGallerySS50];
     UITapGestureRecognizer *crGallerySS50Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crGalleryLev2Change: ) ];
     [crGallerySS50 addGestureRecognizer:crGallerySS50Tap];
     [crGallerySS50 setUserInteractionEnabled:YES];
@@ -621,7 +611,7 @@
     [crGallerySS60 setTextAlignment:UITextAlignmentCenter];
     crGallerySS60.textColor = [UIColor whiteColor];
     crGallerySS60.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:crGallerySS60];
+    [container addSubview:crGallerySS60];
     UITapGestureRecognizer *crGallerySS60Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crGalleryLev2Change: ) ];
     [crGallerySS60 addGestureRecognizer:crGallerySS60Tap];
     [crGallerySS60 setUserInteractionEnabled:YES];
@@ -633,7 +623,7 @@
     [crGallerySS90 setTextAlignment:UITextAlignmentCenter];
     crGallerySS90.textColor = [UIColor whiteColor];
     crGallerySS90.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:crGallerySS90];
+    [container addSubview:crGallerySS90];
     crGallerySS90.tag = 3;
     UITapGestureRecognizer *crGallerySS90Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crGalleryLev2Change: ) ];
     [crGallerySS90 addGestureRecognizer:crGallerySS90Tap];
@@ -646,7 +636,7 @@
     [crGalleryBS50 setTextAlignment:UITextAlignmentCenter];
     crGalleryBS50.textColor = [UIColor whiteColor];
     crGalleryBS50.backgroundColor = UIColorFromRGB(0xC2C2C2);//828282
-    [self.view addSubview:crGalleryBS50];
+    [container addSubview:crGalleryBS50];
     crGalleryBS50.hidden = YES;
     crGalleryBS50.tag = 4;
     UITapGestureRecognizer *crGalleryBS50Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crGalleryLev2Change: ) ];
@@ -661,7 +651,7 @@
     crSpecsSS.backgroundColor = UIColorFromRGB(0xC2C2C2);
     crSpecsSS.tag = 1;
     [crSpecsSS setTextAlignment:UITextAlignmentCenter];
-    [self.view addSubview:crSpecsSS];
+    [container addSubview:crSpecsSS];
     crSpecsSS.hidden = YES;
     UITapGestureRecognizer *crSpecsSSTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crSpecsChange: ) ];
     [crSpecsSS addGestureRecognizer:crSpecsSSTap];
@@ -674,7 +664,7 @@
     crSpecsBS.backgroundColor = UIColorFromRGB(0xC2C2C2);
     crSpecsBS.tag = 2;
     [crSpecsBS setTextAlignment:UITextAlignmentCenter];
-    [self.view addSubview:crSpecsBS];
+    [container addSubview:crSpecsBS];
     crSpecsBS.hidden = YES;
     UITapGestureRecognizer *crSpecsBSTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crSpecsChange: ) ];
     [crSpecsBS addGestureRecognizer:crSpecsBSTap];
@@ -690,7 +680,7 @@
     [hoodsGallerySL setTextAlignment:UITextAlignmentCenter];
     hoodsGallerySL.textColor = [UIColor whiteColor];
     hoodsGallerySL.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsGallerySL];
+    [container addSubview:hoodsGallerySL];
     UITapGestureRecognizer *hoodsGallerySLTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryChange: ) ];
     [hoodsGallerySL addGestureRecognizer:hoodsGallerySLTap];
     [hoodsGallerySL setUserInteractionEnabled:YES];
@@ -703,7 +693,7 @@
     [hoodsGalleryC setTextAlignment:UITextAlignmentCenter];
     hoodsGalleryC.textColor = [UIColor whiteColor];
     hoodsGalleryC.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsGalleryC];
+    [container addSubview:hoodsGalleryC];
     UITapGestureRecognizer *hoodsGalleryCTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryChange: ) ];
     [hoodsGalleryC addGestureRecognizer:hoodsGalleryCTap];
     [hoodsGalleryC setUserInteractionEnabled:YES];
@@ -716,7 +706,7 @@
     [hoodsGallerySL60 setTextAlignment:UITextAlignmentCenter];
     hoodsGallerySL60.textColor = [UIColor whiteColor];
     hoodsGallerySL60.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsGallerySL60];
+    [container addSubview:hoodsGallerySL60];
     UITapGestureRecognizer *hoodsGallerySL60Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryLev2Change: ) ];
     [hoodsGallerySL60 addGestureRecognizer:hoodsGallerySL60Tap];
     [hoodsGallerySL60 setUserInteractionEnabled:YES];
@@ -729,7 +719,7 @@
     [hoodsGallerySL90 setTextAlignment:UITextAlignmentCenter];
     hoodsGallerySL90.textColor = [UIColor whiteColor];
     hoodsGallerySL90.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsGallerySL90];
+    [container addSubview:hoodsGallerySL90];
     UITapGestureRecognizer *hoodsGallerySL90Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsGalleryLev2Change: ) ];
     [hoodsGallerySL90 addGestureRecognizer:hoodsGallerySL90Tap];
     [hoodsGallerySL90 setUserInteractionEnabled:YES];
@@ -743,7 +733,7 @@
     [hoodsSpecsSL setTextAlignment:UITextAlignmentCenter];
     hoodsSpecsSL.textColor = [UIColor whiteColor];
     hoodsSpecsSL.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsSpecsSL];
+    [container addSubview:hoodsSpecsSL];
     UITapGestureRecognizer *hoodsSpecsSLTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsChange: ) ];
     [hoodsSpecsSL addGestureRecognizer:hoodsSpecsSLTap];
     [hoodsSpecsSL setUserInteractionEnabled:YES];
@@ -756,7 +746,7 @@
     [hoodsSpecsC setTextAlignment:UITextAlignmentCenter];
     hoodsSpecsC.textColor = [UIColor whiteColor];
     hoodsSpecsC.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsSpecsC];
+    [container addSubview:hoodsSpecsC];
     UITapGestureRecognizer *hoodsSpecsCTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsChange: ) ];
     [hoodsSpecsC addGestureRecognizer:hoodsSpecsCTap];
     [hoodsSpecsC setUserInteractionEnabled:YES];
@@ -769,7 +759,7 @@
     [hoodsSpecsSL60 setTextAlignment:UITextAlignmentCenter];
     hoodsSpecsSL60.textColor = [UIColor whiteColor];
     hoodsSpecsSL60.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsSpecsSL60];
+    [container addSubview:hoodsSpecsSL60];
     UITapGestureRecognizer *hoodsSpecsSL60Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsLev2Change: ) ];
     [hoodsSpecsSL60 addGestureRecognizer:hoodsSpecsSL60Tap];
     [hoodsSpecsSL60 setUserInteractionEnabled:YES];
@@ -782,7 +772,7 @@
     [hoodsSpecsSL90 setTextAlignment:UITextAlignmentCenter];
     hoodsSpecsSL90.textColor = [UIColor whiteColor];
     hoodsSpecsSL90.backgroundColor = UIColorFromRGB(0xC2C2C2);
-    [self.view addSubview:hoodsSpecsSL90];
+    [container addSubview:hoodsSpecsSL90];
     UITapGestureRecognizer *hoodsSpecsSL90Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hoodsSpecsLev2Change: ) ];
     [hoodsSpecsSL90 addGestureRecognizer:hoodsSpecsSL90Tap];
     [hoodsSpecsSL90 setUserInteractionEnabled:YES];
@@ -792,12 +782,12 @@
     UIImage *dishwasherButton = [UIImage imageNamed:@"dishwasher-button-compact.png"];
     dishwasherOptions = [[UIImageView alloc]initWithImage:dishwasherButton];
     dishwasherOptions.frame = CGRectMake(900, 38, dishwasherButton.size.width/2, dishwasherButton.size.height/2);
-    [self.view addSubview:dishwasherOptions];
+    [container addSubview:dishwasherOptions];
     dishwasherOptions.hidden = YES;
     
     compactOption = [[UIImageView alloc]initWithFrame:CGRectMake(900, 40, dishwasherButton.size.width/2, 35)];
     compactOption.tag = 1;
-    [self.view addSubview:compactOption];
+    [container addSubview:compactOption];
     compactOption.hidden = YES;
     UITapGestureRecognizer *compactOptionTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dishwasherOptionsChange: ) ];
     [compactOption addGestureRecognizer:compactOptionTap];
@@ -806,7 +796,7 @@
     
     builtinOption = [[UIImageView alloc]initWithFrame:CGRectMake(900, 75, dishwasherButton.size.width/2, 35)];
     builtinOption.tag = 2;
-    [self.view addSubview:builtinOption];
+    [container addSubview:builtinOption];
     builtinOption.hidden = YES;
     UITapGestureRecognizer *builtinOptionTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dishwasherOptionsChange: ) ];
     [builtinOption addGestureRecognizer:builtinOptionTap];
@@ -819,7 +809,7 @@
     UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(950, 700, 60, 54)];
     home.image = [UIImage imageNamed:@"home-button.png"];
     home.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:home];
+    [container addSubview:home];
     UITapGestureRecognizer *homeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedHome ) ];
     [home addGestureRecognizer:homeTap];
     [home setUserInteractionEnabled:YES];
@@ -827,7 +817,28 @@
     
     currentProduct = 1;
     
+    photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width)];
+    photoScrollView.backgroundColor = [UIColor grayColor];
+    photoScrollView.scrollEnabled = YES;
+    photoScrollView.showsHorizontalScrollIndicator = TRUE;
+    photoScrollView.showsVerticalScrollIndicator = TRUE;
+    photoScrollView.contentSize = CGSizeMake(300, 300);
+    
+    photoScrollView.delegate = self;
+    photoScrollView.maximumZoomScale = 50;
+    photoScrollView.minimumZoomScale = 1;
+    
+    [photoScrollView addSubview:container];
+    [self.view addSubview:photoScrollView];
+    
 }
+
+#pragma mark -
+#pragma mark UIScrollView Delegate
+- (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {
+    return container;
+}
+
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft );

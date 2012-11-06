@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductGuideController : UIViewController {
+@interface ProductGuideController : UIViewController <UIScrollViewDelegate> {
     UIImageView *background;
     UILabel *main;
     UILabel *gallery;
@@ -37,6 +37,9 @@
     UIImageView *dishwasherOptions;
     UIImageView *builtinOption;
     UIImageView *compactOption;
+    
+    UIScrollView *photoScrollView;
+    UIView *container;
 }
 
 @end
