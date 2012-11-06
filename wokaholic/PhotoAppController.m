@@ -162,13 +162,15 @@
     facebook = [[Facebook alloc] initWithAppId:@"473718806005934" andDelegate:self];
     
     [super loadView];
-    
-    
+    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-female-crop.png"]];
+    overlay.frame = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
+    overlay.alpha = 0.5f;
     imgPicker = [[UIImagePickerController alloc] init];
     imgPicker.delegate = self;
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imgPicker.allowsEditing = YES;
+    //imgPicker.allowsEditing = YES;
     imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    imgPicker.cameraOverlayView = overlay;
     
     fileName = [[NSString alloc]initWithString:@"photoapp-male-parmesan-crusted-fish.png"]; //[NSString stringWithFormat:@"photoapp-male-parmesan-crusted-fish.png"];
     overlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
@@ -179,7 +181,7 @@
     //photo.backgroundColor = [UIColor clearColor];
     //[self.view addSubview:photo];
     
-    photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(800, 70, 150, 150)];
+    photoScrollView = [[UIScrollView alloc]initWithFrame: CGRectMake(770, 60, 180, 180)];
     photoScrollView.backgroundColor = [UIColor redColor];
     photoScrollView.scrollEnabled = YES;
     photoScrollView.showsHorizontalScrollIndicator = TRUE;
@@ -191,16 +193,17 @@
     photoScrollView.minimumZoomScale = .2;
     
     
-    photoCaptured = [[UIImageView alloc]initWithFrame:CGRectMake(photoScrollView.frame.size.width*.15, photoScrollView.frame.size.height*.15, 150, 150)];
+    photoCaptured = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 240, 180)];
     photoCaptured.backgroundColor = [UIColor yellowColor];
-    photoCaptured.image = [UIImage imageNamed:@"photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png"];
+    //photoCaptured.image = [UIImage imageNamed:@"photoapp-female-chicken-scaloppine-with-spinach-and-linguine.png"];
     [photoScrollView addSubview:photoCaptured];
     [self.view addSubview:photoScrollView];
+    
     
     background = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]];
     background.backgroundColor = [UIColor clearColor];
     [self.view addSubview:background];
-    
+    //photoScrollView.alpha = 0.5f;
     
     
     currentBackground = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"];
@@ -296,7 +299,10 @@
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)img editingInfo:(NSDictionary *)editInfo {
-    photoCaptured.image = img;
+    
+    UIImage * flippedImage = [UIImage imageWithCGImage:img.CGImage scale:img.scale orientation:UIImageOrientationUpMirrored];
+    
+    photoCaptured.image = flippedImage; //img;
     photoScrollView.contentSize = CGSizeMake((img.size.width*5) + img.size.width, (img.size.height*5) + img.size.height);
     currentPhoto = img;
     //photo.image = img;
