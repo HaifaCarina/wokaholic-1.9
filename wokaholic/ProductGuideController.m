@@ -11,10 +11,6 @@
 
 @implementation ProductGuideController
 
-- (void) tappedHome {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (NSString *) getProductId: (NSInteger) tag {
     NSString *productId;
     switch (tag) {
@@ -50,6 +46,7 @@
 - (void) changeProduct: (UITapGestureRecognizer *) sender {
     NSLog(@"changeProduct %d", sender.view.tag);
     
+    // background.image = [UIImage imageNamed:@"free-standing-cookers-main@2x"];
     main.backgroundColor = [UIColor blackColor];
     gallery.backgroundColor = UIColorFromRGB(0xa11a20);
     specs.backgroundColor = UIColorFromRGB(0xa11a20);
@@ -211,6 +208,11 @@
             hoodsGallerySL60.hidden = NO;
             hoodsGallerySL90.hidden = NO;
             
+            /*crGallerySS50.hidden = NO;
+             crGallerySS60.hidden = NO;
+             crGallerySS90.hidden = NO;
+             crGalleryBS50.hidden = YES;
+             */
             break;
         }
         case 2: {
@@ -221,7 +223,14 @@
             hoodsGalleryC.hidden =YES;
             hoodsGallerySL60.hidden = YES;
             hoodsGallerySL90.hidden = YES;
-            
+            //crGallerySS.backgroundColor = UIColorFromRGB(0xC2C2C2);
+            //crGalleryBS.backgroundColor = UIColorFromRGB(0x828282);//828282
+            /*
+             crGallerySS50.hidden = YES;
+             crGallerySS60.hidden = YES;
+             crGallerySS90.hidden = YES;
+             crGalleryBS50.hidden = NO;
+             */
             break;
         }
     }
@@ -261,6 +270,11 @@
             hoodsSpecsSL60.hidden = NO;
             hoodsSpecsSL90.hidden = NO;
             
+            /*crGallerySS50.hidden = NO;
+             crGallerySS60.hidden = NO;
+             crGallerySS90.hidden = NO;
+             crGalleryBS50.hidden = YES;
+             */
             break;
         }
         case 2: {
@@ -271,7 +285,14 @@
             hoodsSpecsC.hidden =YES;
             hoodsSpecsSL60.hidden = YES;
             hoodsSpecsSL90.hidden = YES;
-            
+            //crGallerySS.backgroundColor = UIColorFromRGB(0xC2C2C2);
+            //crGalleryBS.backgroundColor = UIColorFromRGB(0x828282);//828282
+            /*
+             crGallerySS50.hidden = YES;
+             crGallerySS60.hidden = YES;
+             crGallerySS90.hidden = YES;
+             crGalleryBS50.hidden = NO;
+             */
             break;
         }
     }
@@ -305,6 +326,9 @@
 - (void) changeInfo: (UITapGestureRecognizer *) sender {
     NSLog(@"changeInfo:%d", currentProduct);
     
+    // background.image = [UIImage imageNamed:@"free-standing-cookers-main@2x"];
+    
+    
     NSString *imgName;
     switch (sender.view.tag) {
         case 1: {
@@ -323,7 +347,11 @@
                 hoodsGalleryC.hidden = YES;
                 hoodsSpecsSL.hidden = YES;
                 hoodsSpecsC.hidden = YES;
-            } 
+            } /*else if (currentProduct == 7) {
+               imgName = [NSString stringWithFormat:@"dishwasher-compact-main@2x.png"];
+               } else if (currentProduct == 8) {
+               imgName = [NSString stringWithFormat:@"dishwasher-builtin-main@2x.png"];
+               } */
             
             background.image = [UIImage imageNamed:imgName];
             
@@ -350,10 +378,18 @@
                 hoodsGalleryC.hidden = NO;
                 hoodsSpecsSL.hidden = YES;
                 hoodsSpecsC.hidden = YES;
-               
+                
+            } /*else if (currentProduct == 7) {
+               imgName = [NSString stringWithFormat:@"dishwasher-compact-gallery@2x.png"];
+               } else if (currentProduct == 8) {
+               imgName = [NSString stringWithFormat:@"dishwasher-builtin-gallery@2x.png"];
+               }
+               */
             background.image = [UIImage imageNamed:imgName];
+            
+            
+            
             break;
-            }
         }
         case 3:{
             main.backgroundColor = UIColorFromRGB(0xa11a20);
@@ -376,13 +412,19 @@
                 hoodsGalleryC.hidden = YES;
                 hoodsSpecsSL.hidden = NO;
                 hoodsSpecsC.hidden = NO;
-            }
+                
+                
+            } /*else if (currentProduct == 7) {
+               NSLog(@"the error is here changeinfo7");// imgName = [NSString stringWithFormat:@"dishwasher-compact-specs@2x.png"];
+               } else if (currentProduct == 8) {
+               NSLog(@"the error is here changeinfo8");//imgName = [NSString stringWithFormat:@"dishwasher-builtin-specs@2x.png"];
+               }*/
             background.image = [UIImage imageNamed:imgName];
             break;
         }
             
             
-        }
+    }
     
 }
 
@@ -412,11 +454,25 @@
     builtinOption.hidden = YES;
     compactOption.hidden = YES;
 }
+- (void) tappedHome {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	/*
+     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.height, self.view.bounds.size.width)];
+     webView.scrollView.bounces = NO;
+     webView.scalesPageToFit = YES;
+     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"www"]];
+     [webView loadRequest:[NSURLRequest requestWithURL:url]];
+     //add the web view to the content view
+     [self.view addSubview:webView];
+     [webView release];
+     */
+    
     background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
     background.image = [UIImage imageNamed:@"free-standing-cookers-main@2x.png"];
     background.backgroundColor = [UIColor clearColor];
