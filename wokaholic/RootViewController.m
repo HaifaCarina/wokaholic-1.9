@@ -100,7 +100,7 @@
     [about setUserInteractionEnabled:YES];
     [aboutTap release];
     
-    // ABOUT BUTTON
+   /* // ABOUT BUTTON
     UIImageView *about2 = [[UIImageView alloc] initWithFrame:CGRectMake(825.0, 130.0 + 126 + 126 + 126 + 126 + 80, 188, 80 )];
     about2.backgroundColor = [UIColor clearColor];
     [self.view addSubview:about2];
@@ -108,6 +108,7 @@
     [about2 addGestureRecognizer:aboutTap2];
     [about2 setUserInteractionEnabled:YES];
     [aboutTap2 release];
+    */
 
 
     
