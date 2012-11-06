@@ -125,7 +125,7 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                     snapshot.image, @"source",
-                                    @"Yeheeey!", @"message",
+                                    @"I am the master chef of my Wok-A-Holic kitchen! Visit us on http://facebook.com/thelittlewhitebook or follow us through http://twitter.com/ElectroluxPH ", @"message",
                                    @"Electrolux Wok-A-Holic PhotoApp image has been posted to your Facebook wall.", @"alertmessage",
                                    @"photoapp",@"category",
                                     nil];

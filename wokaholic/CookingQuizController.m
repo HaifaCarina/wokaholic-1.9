@@ -7,13 +7,40 @@
 //
 
 #import "CookingQuizController.h"
-
+#import "AppDelegate.h"
 @implementation CookingQuizController
 
 - (void) tappedHome {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void) tappedFacebook {
+    facebookShare.hidden = YES;
+    //createSnapshot
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGRect rect;
+    rect = CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([viewImage CGImage], rect);
+    
+    UIImage *img = [UIImage imageWithCGImage:imageRef];
+    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    CGImageRelease(imageRef);
+    
+    facebookShare.hidden = NO;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   img, @"source",
+                                   @"I took the Wok-A-Holic Cooking Quiz and I'm on my way to becoming the master chef of my kitchen! Visit us on http://facebook.com/thelittlewhitebook or follow us through http://twitter.com/ElectroluxPH ", @"message",
+                                   @"Electrolux Wok-A-Holic Cooking Quiz Result has been posted to your Facebook wall.", @"alertmessage",
+                                   nil];
+    [appDelegate facebookSetParameters:params];
+    
+}
 - (void) loadView {
     [super loadView];
     
@@ -29,6 +56,20 @@
     [webView release];
     
     self.view.backgroundColor =[UIColor blueColor];
+    
+    UIImage *fbImage = [UIImage imageNamed:@"facebook.png"];
+    
+    // Facebook Share button
+    facebookShare = [[UIImageView alloc] initWithFrame:CGRectMake(330, 700, fbImage.size.width, fbImage.size.height)];
+    facebookShare.image = fbImage;
+    facebookShare.backgroundColor = [UIColor blueColor];
+    facebookShare.hidden = YES;
+    [self.view addSubview:facebookShare];
+    UITapGestureRecognizer *facebookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedFacebook ) ];
+    [facebookShare addGestureRecognizer:facebookTap];
+    [facebookShare setUserInteractionEnabled:YES];
+    [facebookTap release];
+    
     
     // HOME BUTTON
     UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(950, 700, 60, 54)];

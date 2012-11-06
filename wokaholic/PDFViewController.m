@@ -28,7 +28,7 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    imageView.image, @"source",
-                                   @"Recipe here", @"message",
+                                   @"I just cooked a delicious dish from from the Wok-A-Holic list of recipes by Chef Bruce Lim! Visit us on http://facebook.com/thelittlewhitebook or follow us through http://twitter.com/ElectroluxPH ", @"message",
                                    @"Electrolux Wok-A-Holic Recipe image has been posted to your Facebook wall.", @"alertmessage",
                                    @"recipes",@"category",
                                    nil];
