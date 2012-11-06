@@ -53,6 +53,8 @@
 
 - (void) createSnapshot {
     
+    shootButton.hidden = YES;
+    
     UIGraphicsBeginImageContext(self.view.bounds.size);
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -76,7 +78,7 @@
     background.image = nil;
     dishOptions.hidden = YES;
     genderOptions.hidden = YES;
-    shootButton.hidden = YES;
+    
     shareButton.hidden = YES;
     
     
