@@ -591,7 +591,7 @@
     [crGallerySS90Tap release];
     crGallerySS90.hidden = YES;
     
-    crGalleryBS50 = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 +40, 200, 40)];
+    crGalleryBS50 = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 +40 +40, 200, 40)];
     crGalleryBS50.text = @"50 cm";
     [crGalleryBS50 setTextAlignment:UITextAlignmentCenter];
     crGalleryBS50.textColor = [UIColor whiteColor];
