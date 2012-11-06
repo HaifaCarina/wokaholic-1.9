@@ -140,6 +140,14 @@
                                 jQuery("#message-incorrect").css("visibility", "hidden");
                                 globalbg.play("game");
                                 }
+                                if(!globalbg._where||globalbg._where=='score'){
+                                    jQuery("#number").css("visibility", "hidden");
+                                    jQuery("#question").css("visibility", "hidden");
+                                    jQuery("#a").css("visibility", "hidden");
+                                    jQuery("#b").css("visibility", "hidden");
+                                    jQuery("#c").css("visibility", "hidden");
+                                    jQuery("#d").css("visibility", "hidden");
+                                }
                                 jQuery(".game-text-elements").each(function(){
                                                                   jQuery(this).css("display", "block");
                                                                   }); 
