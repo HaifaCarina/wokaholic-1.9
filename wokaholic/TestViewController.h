@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestViewController : UIViewController
-
+@interface TestViewController : UIViewController {
+    UIImageView *background;
+    UILabel *main;
+    UILabel *gallery;
+    UILabel *specs;
+    NSInteger currentProduct;
+}
 @end
