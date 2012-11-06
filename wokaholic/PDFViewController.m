@@ -7,7 +7,7 @@
 //
 
 #import "PDFViewController.h"
-
+#import "AppDelegate.h"
 
 @implementation PDFViewController
 
@@ -22,7 +22,17 @@
 }
 
 - (void) shareAction {
-    NSLog(@"share action");
+    NSLog(@"share action %@", imageView.image);
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   imageView.image, @"source",
+                                   @"Recipe here", @"message",
+                                   @"Electrolux Wok-A-Holic Recipe image has been posted to your Facebook wall.", @"alertmessage",
+                                   nil];
+    [appDelegate facebookSetParameters:params];
+    
 }
 - (void) loadView {
     [super loadView];
