@@ -127,6 +127,7 @@
                                     snapshot.image, @"source",
                                     @"Yeheeey!", @"message",
                                    @"Electrolux Wok-A-Holic PhotoApp image has been posted to your Facebook wall.", @"alertmessage",
+                                   @"photoapp",@"category",
                                     nil];
     [appDelegate facebookSetParameters:params];
     

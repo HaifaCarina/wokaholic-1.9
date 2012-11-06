@@ -30,6 +30,7 @@
                                    imageView.image, @"source",
                                    @"Recipe here", @"message",
                                    @"Electrolux Wok-A-Holic Recipe image has been posted to your Facebook wall.", @"alertmessage",
+                                   @"recipes",@"category",
                                    nil];
     [appDelegate facebookSetParameters:params];
     

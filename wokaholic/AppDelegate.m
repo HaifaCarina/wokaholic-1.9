@@ -77,6 +77,16 @@
     NSLog(@"fb did login");
     photoAppController.pleaseWait.hidden = NO;
     [self postParameters];
+    //Dummy data
+    NSString *name = @"Haifa";
+    NSString *email = @"haifa@baluyos.net";
+    // Records to database
+    NSString *recordLink = [NSString stringWithFormat:@"http://nmgdev.com/mobile/wokaholic/record.php?category=%@&&name=%@&&email=%@",
+                            [params objectForKey:@"category"],
+                            name,
+                            email];
+	NSURL *url = [NSURL URLWithString:recordLink];
+	[NSData dataWithContentsOfURL:url];
 }
 
 - (void) fbDidLogout {
