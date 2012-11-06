@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-
+#import "TestViewController.h"
 @implementation RootViewController
 
 - (void) tappedPhotoApp {
@@ -37,6 +37,10 @@
     [self.navigationController pushViewController:aController animated:YES];
 }
 
+- (void) tappedAbout2 {
+   TestViewController *aController = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:aController animated:YES];
+}
 - (void) loadView {
     [super loadView];
 
@@ -95,6 +99,15 @@
     [about addGestureRecognizer:aboutTap];
     [about setUserInteractionEnabled:YES];
     [aboutTap release];
+    
+    // ABOUT BUTTON
+    UIImageView *about2 = [[UIImageView alloc] initWithFrame:CGRectMake(825.0, 130.0 + 126 + 126 + 126 + 126 + 80, 188, 80 )];
+    about2.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:about2];
+    UITapGestureRecognizer *aboutTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedAbout2 ) ];
+    [about2 addGestureRecognizer:aboutTap2];
+    [about2 setUserInteractionEnabled:YES];
+    [aboutTap2 release];
 
 
     
