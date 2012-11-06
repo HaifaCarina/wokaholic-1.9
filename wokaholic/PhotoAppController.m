@@ -186,7 +186,7 @@
     
     
     currentBackground = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"];
-    //currentPhoto = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]; //[[UIImage alloc]init];//
+    currentPhoto = [UIImage imageNamed:@"photoapp-male-parmesan-crusted-fish.png"]; //[[UIImage alloc]init];//
     
     shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[shareButton addTarget:self  action:@selector(createSnapshot) forControlEvents:UIControlEventTouchDown];
@@ -296,7 +296,7 @@
     
     photoCaptured.image = flippedImage; //img;
     photoScrollView.contentSize = CGSizeMake((img.size.width*5) + img.size.width, (img.size.height*5) + img.size.height);
-    currentPhoto = img;
+    currentPhoto = photoCaptured.image; //img;
     //photo.image = img;
     //photo.hidden = NO;
     background.hidden = NO;
