@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!--<link href="css/style.css" type="text/css" rel="stylesheet" /> -->
+        <script src="js/jquery-1.7.2.min.js" language="javascript"></script>
+        <script src="js/easeljs-0.4.2.min.js" language="javascript"></script>
+        <script src="js/iscroll.js" language="javascript"></script>
+        <script src="js/_nmg.js" language="javascript"></script>
+        <style>
+           /* #nmgcontainer {
+                background: url(images/free-standing-cookers-gallery-bs-50@2x.png);
+                position: absolute;
+                width: 2048px;
+                height: 1536;
+                z-index: 10;
+            }
+            */
+            #tab-menu {
+                font-size: 40px;
+                font-family: Arial;
+                text-align: center;
+                color: white;
+            }
+            #main, #gallery, #specs {
+                height: 50px;
+                top:204px;
+                position: absolute;
+                padding: 5px;
+                background-color: #a11a20;
+                z-index: 10;
+                
+            }
+            #main {
+                width: 350px;
+                left: 20px;
+            }
+            #gallery {
+                width: 300px;
+                left: 380px;
+            }
+            #specs {
+                width: 450px;
+                left: 690px;
+            }
+        </style>
+        <script language="javascript">
+            
+            //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false); //preventing the pinch zoom et al
+            var myScroll;
+            
+            function loaded() {
+                myScroll = new iScroll('wrapper');
+                
+                wrapper = jQuery("#wrapper");
+                elemAnimateIn(wrapper); // animate the contents of the wrapper
+                
+            }
+            //document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+            jQuery(function(){
+                   /*
+                   //background
+                   canvas = jQuery("#background");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   canvasImage(canvas,"images/free-standing-cookers-gallery-bs-50@2x.png");
+                   elemWH(canvas, 2048, 1536);
+                   elemZIndex(canvas, 10);
+                   */
+                   
+                   //nmgcontainer
+                   canvas = jQuery("#nmgcontainer");
+                   elemAbs(canvas);
+                   elemWH(canvas, 2048, 1536);
+                   elemZIndex(canvas, 10);
+                   canvas.css("background","url(images/free-standing-cookers-gallery-bs-50@2x.png)");
+                   
+                   
+                   //tab-menu
+                   canvas = jQuery("#tab-menu");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemZIndex(canvas, 10);
+                   
+                   //main
+                  /* canvas = jQuery("#main");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemWH(canvas, 350, 50);
+                   elemZIndex(canvas, 10);
+                   elemTop(canvas, 204);
+                   elemLeft(canvas, 20);
+                   canvas.css("padding","5px");
+                   canvas.css("background-color","#a11a20");
+                   
+                   //gallery
+                   canvas = jQuery("#gallery");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemWH(canvas, 300, 50);
+                   elemZIndex(canvas, 10);
+                   elemTop(canvas, 204);
+                   elemLeft(canvas, 20 + 360);
+                   canvas.css("padding","5px");
+                   canvas.css("background-color","blue");
+                   
+                   //specs
+                   canvas = jQuery("#specs");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemWH(canvas, 450, 50);
+                   elemZIndex(canvas, 10);
+                   elemTop(canvas, 204);
+                   elemLeft(canvas, 20 + 360 + 310);
+                   canvas.css("padding","5px");
+                   canvas.css("background-color","yellow");
+                   */
+                   //scaling
+                   jQuery(".scale").each(function(){
+                                         elemScale(jQuery(this));
+                                         }
+                                         );
+                   
+                   jQuery("#nmgcontainer").css("visibility", "visible");
+                   });
+            
+            </script>
+        
+        
+        <title>Wok-A-Holic</title>
+    </head>
+    <body style="margin: 0px;">
+        <div id="nmgcontainer">
+           <!--<canvas id="background"></canvas>-->
+            <div id="tab-menu">
+                <div class="tabs" id="main">Cooking Ranges</div>
+                <div class="tabs" id="gallery">Gallery</div>
+                <div class="tabs" id="specs">Product Specification</div>
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -7,7 +7,6 @@
 //
 
 #import "RootViewController.h"
-#import "TestViewController.h"
 @implementation RootViewController
 
 - (void) tappedPhotoApp {
@@ -37,10 +36,6 @@
     [self.navigationController pushViewController:aController animated:YES];
 }
 
-- (void) tappedAbout2 {
-   TestViewController *aController = [[TestViewController alloc] init];
-    [self.navigationController pushViewController:aController animated:YES];
-}
 - (void) loadView {
     [super loadView];
 
@@ -52,7 +47,8 @@
     [playButton setBackgroundImage:facebookButton forState:UIControlStateNormal];
     //[self.view addSubview:playButton];
     
-    UIImageView *homeBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home.jpg"]];
+    UIImageView *homeBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home.png"]];
+    homeBackground.frame = CGRectMake(0, 0, 1024, 768);
     [self.view addSubview:homeBackground];
     
     // PHOTO APP BUTTON
@@ -99,19 +95,7 @@
     [about addGestureRecognizer:aboutTap];
     [about setUserInteractionEnabled:YES];
     [aboutTap release];
-    
-   /* // ABOUT BUTTON
-    UIImageView *about2 = [[UIImageView alloc] initWithFrame:CGRectMake(825.0, 130.0 + 126 + 126 + 126 + 126 + 80, 188, 80 )];
-    about2.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:about2];
-    UITapGestureRecognizer *aboutTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedAbout2 ) ];
-    [about2 addGestureRecognizer:aboutTap2];
-    [about2 setUserInteractionEnabled:YES];
-    [aboutTap2 release];
-    */
 
-
-    
     
 }
 
