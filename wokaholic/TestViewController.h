@@ -14,5 +14,12 @@
     UILabel *gallery;
     UILabel *specs;
     NSInteger currentProduct;
+    UILabel *crGallerySS;
+    UILabel *crGallerySS50;
+    UILabel *crGallerySS60;
+    UILabel *crGallerySS90;
+    UILabel *crGalleryBS;
+    UILabel *crGalleryBS50;
+    
 }
 @end
