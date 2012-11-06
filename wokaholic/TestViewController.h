@@ -21,5 +21,8 @@
     UILabel *crGalleryBS;
     UILabel *crGalleryBS50;
     
+    UILabel *crSpecsSS;
+    UILabel *crSpecsBS;
+    
 }
 @end

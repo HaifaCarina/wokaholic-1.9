@@ -118,7 +118,26 @@
     }
 
 }
-
+- (void) crSpecsChange: (UITapGestureRecognizer *) sender {
+    NSLog(@"%d", sender.view.tag);
+    switch (sender.view.tag) {
+        case 1: {
+            NSString *imgName = [NSString stringWithFormat:@"free-standing-cookers-specs-ss@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            break;
+        }
+        case 2: {
+            NSString *imgName = [NSString stringWithFormat:@"free-standing-cookers-specs-bs@2x.png"];
+            background.image = [UIImage imageNamed:imgName];
+            break;
+        }
+    }
+    
+    crSpecsSS.hidden = YES;
+    crSpecsBS.hidden = YES;
+    
+    
+}
 
 - (void) crGalleryLev2Change: (UITapGestureRecognizer *) sender {
     switch (sender.view.tag) {
@@ -172,6 +191,8 @@
             if (currentProduct == 1) {
                 crGallerySS.hidden = YES;
                 crGalleryBS.hidden = YES;
+                crSpecsSS.hidden = YES;
+                crSpecsBS.hidden = YES;
             }
             break;
 
@@ -186,6 +207,8 @@
                 imgName = [NSString stringWithFormat:@"free-standing-cookers-gallery-ss-50@2x.png"];
                 crGallerySS.hidden = NO;
                 crGalleryBS.hidden = NO;
+                crSpecsSS.hidden = YES;
+                crSpecsBS.hidden = YES;
             } 
             
             background.image = [UIImage imageNamed:imgName];
@@ -205,6 +228,8 @@
                 imgName = [NSString stringWithFormat:@"free-standing-cookers-specs-ss@2x.png"];
                 crGallerySS.hidden = YES;
                 crGalleryBS.hidden = YES;
+                crSpecsSS.hidden = NO;
+                crSpecsBS.hidden = NO;
             }
             background.image = [UIImage imageNamed:imgName];
             break;
@@ -332,7 +357,9 @@
     [specs addGestureRecognizer:specsTap];
     [specs setUserInteractionEnabled:YES];
     [specsTap release];
-    
+    /**
+        COOKING RANGES GALLERY
+     **/
     crGallerySS = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200, 91 +40, 200, 40)];
     crGallerySS.text = @"Stainless Steel";
     crGallerySS.tag = 1;
@@ -411,6 +438,32 @@
     [crGalleryBS50 setUserInteractionEnabled:YES];
     [crGalleryBS50Tap release];
     
+    
+    crSpecsSS = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 + 40, 250, 40)];
+    crSpecsSS.text = @"Stainless Steel";
+    crSpecsSS.textColor = [UIColor whiteColor];
+    crSpecsSS.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    crSpecsSS.tag = 1;
+    [crSpecsSS setTextAlignment:UITextAlignmentCenter];
+    [self.view addSubview:crSpecsSS];
+    crSpecsSS.hidden = YES;
+    UITapGestureRecognizer *crSpecsSSTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crSpecsChange: ) ];
+    [crSpecsSS addGestureRecognizer:crSpecsSSTap];
+    [crSpecsSS setUserInteractionEnabled:YES];
+    [crSpecsSSTap release];
+    
+    crSpecsBS = [[UILabel alloc]initWithFrame:CGRectMake(10 + 200 + 200, 91 + 40 + 40, 250, 40)];
+    crSpecsBS.text = @"Black Series";
+    crSpecsBS.textColor = [UIColor whiteColor];
+    crSpecsBS.backgroundColor = UIColorFromRGB(0xC2C2C2);
+    crSpecsBS.tag = 2;
+    [crSpecsBS setTextAlignment:UITextAlignmentCenter];
+    [self.view addSubview:crSpecsBS];
+    crSpecsBS.hidden = YES;
+    UITapGestureRecognizer *crSpecsBSTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(crSpecsChange: ) ];
+    [crSpecsBS addGestureRecognizer:crSpecsBSTap];
+    [crSpecsBS setUserInteractionEnabled:YES];
+    [crSpecsBSTap release];
     
     // HOME BUTTON
     UIImageView *home = [[UIImageView alloc] initWithFrame:CGRectMake(10, 700, 60, 54)];
