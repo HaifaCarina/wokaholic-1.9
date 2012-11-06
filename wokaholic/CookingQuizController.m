@@ -37,6 +37,7 @@
                                    img, @"source",
                                    @"I took the Wok-A-Holic Cooking Quiz and I'm on my way to becoming the master chef of my kitchen! Visit us on http://facebook.com/thelittlewhitebook or follow us through http://twitter.com/ElectroluxPH ", @"message",
                                    @"Electrolux Wok-A-Holic Cooking Quiz Result has been posted to your Facebook wall.", @"alertmessage",
+                                   @"cookingquiz", @"category",
                                    nil];
     [appDelegate facebookSetParameters:params];
     
@@ -60,10 +61,11 @@
     UIImage *fbImage = [UIImage imageNamed:@"facebook.png"];
     
     // Facebook Share button
-    facebookShare = [[UIImageView alloc] initWithFrame:CGRectMake(330, 700, fbImage.size.width, fbImage.size.height)];
+    //facebookShare = [[UIImageView alloc] initWithFrame:CGRectMake(330, 700, fbImage.size.width, fbImage.size.height)];
+    facebookShare = [[UIImageView alloc] initWithFrame:CGRectMake(835, 715, fbImage.size.width, fbImage.size.height)];
     facebookShare.image = fbImage;
     facebookShare.backgroundColor = [UIColor blueColor];
-    facebookShare.hidden = YES;
+    //facebookShare.hidden = YES;
     [self.view addSubview:facebookShare];
     UITapGestureRecognizer *facebookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedFacebook ) ];
     [facebookShare addGestureRecognizer:facebookTap];
