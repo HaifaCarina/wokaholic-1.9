@@ -65,6 +65,7 @@
 		A588C1241636600200968850 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A588C1231636600200968850 /* MobileCoreServices.framework */; };
 		A588C12B1636651800968850 /* CookingQuizController.m in Sources */ = {isa = PBXBuildFile; fileRef = A588C12A1636651800968850 /* CookingQuizController.m */; };
 		A588C1341636681400968850 /* www in Resources */ = {isa = PBXBuildFile; fileRef = A588C1331636681400968850 /* www */; };
+		A59CBF8A164AC46E00E9F84E /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A59CBF89164AC46E00E9F84E /* home.jpg */; };
 		A5A285D91649C467005EA57C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A285D81649C467005EA57C /* AVFoundation.framework */; };
 		A5A93FAF1636735E001987AC /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5A93FAE1636735E001987AC /* about.jpg */; };
 		A5A93FB31636737C001987AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A93FB21636737C001987AC /* AboutController.m */; };
@@ -224,6 +225,7 @@
 		A588C1291636651800968850 /* CookingQuizController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookingQuizController.h; sourceTree = "<group>"; };
 		A588C12A1636651800968850 /* CookingQuizController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookingQuizController.m; sourceTree = "<group>"; };
 		A588C1331636681400968850 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		A59CBF89164AC46E00E9F84E /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
 		A5A285D81649C467005EA57C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A5A93FAE1636735E001987AC /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
 		A5A93FB11636737C001987AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		A588C0E616364AB300968850 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A59CBF89164AC46E00E9F84E /* home.jpg */,
 				A54736CD1649D1AA00417054 /* home.png */,
 				A5C9B6D116490E9900E8C74E /* photoapp-male-crop.png */,
 				A5C9B6CA164903EC00E8C74E /* photoapp-female-crop.png */,
@@ -749,6 +752,7 @@
 				A5C9B6CB164903EC00E8C74E /* photoapp-female-crop.png in Resources */,
 				A5C9B6D216490E9900E8C74E /* photoapp-male-crop.png in Resources */,
 				A54736CE1649D1AA00417054 /* home.png in Resources */,
+				A59CBF8A164AC46E00E9F84E /* home.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
