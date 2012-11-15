@@ -160,7 +160,7 @@
                                 [UIImage imageNamed:@"thumb-dessert-3.png"],
                                 [UIImage imageNamed:@"thumb-dessert-4.png"],
                                 [UIImage imageNamed:@"thumb-dessert-5.png"],
-                                [UIImage imageNamed:@"thumb-dessert-7.png"],
+                                [UIImage imageNamed:@"thumb-dessert-6.png"],
                                 [UIImage imageNamed:@"thumb-dessert-7.png"], nil];
     
     
