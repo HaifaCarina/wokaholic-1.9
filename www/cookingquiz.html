@@ -135,10 +135,14 @@
                                 
                                 if(!globalbg._where||globalbg._where=='correct'){
                                     globalbg.play("game");
+                                    jQuery("#next-button").css("visibility", "hidden");
+                                
                                 }
                                 if(!globalbg._where||globalbg._where=='wrong'){
                                 jQuery("#message-incorrect").css("visibility", "hidden");
                                 globalbg.play("game");
+                                jQuery("#next-button").css("visibility", "hidden");
+                                
                                 }
                                 if(!globalbg._where||globalbg._where=='score'){
                                     jQuery("#number").css("visibility", "hidden");
@@ -150,7 +154,7 @@
                                 }
                                 jQuery(".game-text-elements").each(function(){
                                                                   jQuery(this).css("display", "block");
-                                                                  }); 
+                                                                   }); 
                                 });
                   
                    globalbg = new mm_animation("background", json);
@@ -197,7 +201,27 @@
                    elemLeft(canvas, 240 + 10);
                    canvas.css("visibility", "hidden");
                    //canvas.css("background-color", "green");
-                    
+                   
+                   //next-button
+                   canvas = jQuery("#next-button");
+                   canvas.addClass("scale");
+                   elemAbs(canvas);
+                   elemWH(canvas, 279,120);
+                   canvasImage(canvas,"images/next-button.png");
+                   elemZIndex(canvas, 11);
+                   elemTop(canvas, 550);
+                   elemLeft(canvas, 230);
+                   canvas.css("visibility", "hidden");
+                   //canvas.css("background-color", "green");
+                   canvas.click(function(){
+                                globalbg.play("game");
+                                jQuery("#next-button").css("visibility", "hidden");
+                                jQuery("#message-incorrect").css("visibility", "hidden");
+                                jQuery(".game-text-elements").each(function(){
+                                                                   jQuery(this).css("display", "block");
+                                                                   });
+                                });
+                   
                    //score-title
                    canvas = jQuery("#score-title");
                    canvas.addClass("scale");
@@ -383,7 +407,10 @@
                                                     score++;
                                                     current++;
                                                     console.log("correct! Score is " + score);
-                                                 
+                                                    
+                                                    canvas = jQuery("#next-button");
+                                                    canvas.css("visibility", "visible");
+                                            
                                                     globalbg.play("correct");
                                              jQuery(".game-text-elements").each(function(){
                                                                              jQuery(this).css("display", "none");
@@ -429,7 +456,10 @@
                                             console.log("BEFORE display score");
                                                        globalbg.play("score");
                                             console.log("AFTER display score");
-                                                       
+                                                    
+                                                    canvas = jQuery("#next-button");
+                                                    canvas.css("visibility", "visible");
+                                            
                                                     canvas = jQuery("#score-correct");
                                                     canvas.css("visibility", "visible");
                                                     canvas = document.getElementById("score-correct");
@@ -474,7 +504,10 @@
                                                 } else {
                                                     correctAnswer = quizQuestions.questions[finalQuestions[current]].answer;
                                                     console.log("wrong! The correct answer is " + quizQuestions.questions[finalQuestions[current]][correctAnswer] +" Score is "+ score);
-                                    
+                                                    
+                                                    canvas = jQuery("#next-button");
+                                                    canvas.css("visibility", "visible");
+                                            
                                                    canvas = jQuery("#message-incorrect");
                                                    canvas.css("visibility", "visible");
                                               
@@ -522,6 +555,9 @@
                                                         
                                                     } else {
                                                        
+                                                        canvas = jQuery("#next-button");
+                                                        canvas.css("visibility", "visible");
+                                            
                                                        canvas = jQuery("#message-incorrect");
                                                        canvas.css("visibility", "hidden");
                                                        
@@ -606,6 +642,7 @@
             <canvas id="score-bg"></canvas>
             <canvas id="score-correct"></canvas>
             <canvas id="score-incorrect"></canvas>
+            <canvas id="next-button"></canvas>
             <canvas id="score-title"></canvas>
             <canvas id="score-title-you"></canvas>
             <canvas id="score-title-description"></canvas>
