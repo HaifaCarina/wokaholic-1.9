@@ -76,6 +76,6 @@
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight );
+    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 @end
