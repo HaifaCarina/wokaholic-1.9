@@ -855,10 +855,12 @@
 		A588C0F716364AB300968850 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haifa Carina Baluyos (QEA894Y3MJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wokaholic/wokaholic-Prefix.pch";
 				INFOPLIST_FILE = "wokaholic/wokaholic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "056F95DF-7C7A-4B21-8C17-53511CB8B771";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -866,10 +868,12 @@
 		A588C0F816364AB300968850 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NMG Resources, Inc.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wokaholic/wokaholic-Prefix.pch";
 				INFOPLIST_FILE = "wokaholic/wokaholic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA633149-B4CF-404B-A76A-49CF495CF835";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
