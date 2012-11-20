@@ -15,6 +15,7 @@
 - (void) tappedHome {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void) shoot{
     
     imgPicker = [[UIImagePickerController alloc] init];
@@ -30,9 +31,13 @@
     
     imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    
     [self presentModalViewController:imgPicker animated:YES];
     
+    UIDevice *currentDevice = [UIDevice currentDevice];
     
+    while ([currentDevice isGeneratingDeviceOrientationNotifications])
+        [currentDevice endGeneratingDeviceOrientationNotifications];
 }
 
 - (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
@@ -308,6 +313,7 @@
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight );
 }
+
 
 
 @end
