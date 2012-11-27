@@ -24,7 +24,7 @@
     //imgPicker.allowsEditing = YES;
     imgPicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     
-    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-female-crop.png"]];
+    overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoapp-male-crop.png"]];
     overlay.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     overlay.alpha = 0.5f;
     imgPicker.cameraOverlayView = overlay;
@@ -115,11 +115,15 @@
             gender = @"male";
             overlay.image = [UIImage imageNamed:@"photoapp-male-crop.png"];
             photoScrollView.frame = CGRectMake(770, 60, 180, 180);
+            imgPicker.cameraOverlayView = overlay;
+            NSLog(@"change overlay to male");
             break;
         case 1:
             gender = @"female";
             overlay.image = [UIImage imageNamed:@"photoapp-female-crop.png"];
             photoScrollView.frame = CGRectMake(755, 65, 180, 180);
+            imgPicker.cameraOverlayView = overlay;
+            NSLog(@"change overlay to male");
             break;
     }
     
